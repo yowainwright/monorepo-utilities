@@ -1,0 +1,28 @@
+{
+  "name": "@monorepo-utilities/build-node-modules",
+  "version": "0.0.1",
+  "description": "Builds node modules to spec 👷",
+  "main": "dist/index.js",
+  "bin": {
+    "build-node-modules": "./dist/index.js"
+  },
+  "keywords": [
+    "node_modules",
+    "build",
+    "environment",
+    "dist"
+  ],
+  "author": "yowainwright <yowainwright@gmail.com>",
+  "homepage": "https://github.com/yowainwright/monorepo-utilities#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yowainwright/monorepo-utilities.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yowainwright/monorepo-utilities/issues"
+  }
+}
