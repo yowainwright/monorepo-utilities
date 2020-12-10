@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "checkJs": false,
+    "jsx": "react",
+    "importHelpers": true,
+    "lib": ["esnext", "dom", "es6", "dom.iterable"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "exclude": ["dist", "**/*.test.ts", "packages/*/dist/**", "*.js"]
+}

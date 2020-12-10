@@ -1,4 +1,4 @@
-name: Pull Request Review
+name: Pull Request Manager
 
 on:
   pull_request:
@@ -8,14 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NPMRC_AUTH_TOKEN: ${{ secrets.NPMRC_AUTH_TOKEN }}
       CI: true
     strategy:
       matrix:
         node-version: [14]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
