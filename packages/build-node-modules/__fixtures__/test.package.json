@@ -1,0 +1,25 @@
+{
+  "name": "test-build-node-modules",
+  "version": "0.0.1",
+  "description": "tests Build Node Modules to spec",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yowainwright/monorepo-utilities.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "ramda": "",
+    "typescript": ""
+  },
+  "devDependencies": {
+    "jest": "",
+    "@types/ramda": ""
+  },
+  "buildNodeModules": {
+    "react": "",
+    "babel": ""
+  }
+}

@@ -10,16 +10,104 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-lerna-scopes": "^11.0.0",
+    "@commitlint/prompt": "^11.0.0",
     "@heartly/eslint-config-typescript": "^0.0.2",
-    "@types/jest": "^26.0.16",
-    "@types/node": "^14.14.10",
+    "@heartly/prettier-config": "^0.0.1",
+    "@types/jest": "^26.0.18",
+    "@types/node": "^14.14.11",
+    "commitizen": "^4.2.2",
     "eslint": "^7.15.0",
+    "husky": "^4.3.5",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2"
-  }
+  },
+  "scripts": {
+    "build": "yarn clean:dist && yarn build:dist",
+    "build:dist": "lerna run build",
+    "clean": "lerna clean",
+    "clean:dist": "lerna run clean",
+    "ci": "run-s lint:ci tsc test:ci",
+    "lint": "yarn lint:cmd --fix",
+    "lint:ci": "yarn lint:cmd",
+    "lint:cmd": "eslint . --ext '.ts'",
+    "test": "yarn test:cmd",
+    "test:ci": "yarn test:cmd --ci",
+    "test:cmd": "jest --maxWorkers=4 --noStackTrace --collectCoverage=true",
+    "deploy": "yarn build && lerna publish from-package --ignore-scripts --canary --yes",
+    "deploy:all": "yarn build && lerna publish --ignore-scripts",
+    "refresh": "lerna clean && rm -rf node_modules && yarn",
+    "tsc": "tsc -p ./tsconfig.test.json"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@commitlint/prompt"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-lerna-scopes"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        120
+      ],
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "root",
+          "build-node-modules"
+        ]
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "chore",
+          "feat",
+          "fix",
+          "docs",
+          "style",
+          "refactor",
+          "test",
+          "release",
+          "revert"
+        ]
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn; fi",
+      "post-merge": "yarn",
+      "post-rewrite": "yarn",
+      "pre-commit": "yarn tsc && lint-staged "
+    }
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/*"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": [
+      "yarn lint"
+    ],
+    "*.{ts}": [
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "prettier": "@heartly/eslint-config-typescript/dist/prettier"
 }
