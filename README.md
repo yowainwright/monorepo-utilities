@@ -13,11 +13,11 @@ Javascript utilities for better monorepo results.
 
 ---
 
-## packages
+## Packages
 
 | Package                                                                | Utility                       |
 | ---------------------------------------------------------------------- | ----------------------------- |
-| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build `node_modules` to spec. |
+| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build node_modules directories with control |
 
 ---
 
