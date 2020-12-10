@@ -25,7 +25,7 @@ Javascript utilities for better monorepo results.
 
 Below are sectioned descriptions and usages of each implemented Monorepo Utility.
 
-[Build Node Modules](#build-node-modules-1)
+[Build Node Modules](#build-node-modules)
 
 ---
 
