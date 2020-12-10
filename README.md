@@ -13,11 +13,11 @@ Javascript utilities for better monorepo results.
 
 ---
 
-## packages
+## Packages
 
 | Package                                                                | Utility                       |
 | ---------------------------------------------------------------------- | ----------------------------- |
-| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build `node_modules` to spec. |
+| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build node_modules directories with control |
 
 ---
 
@@ -25,7 +25,8 @@ Javascript utilities for better monorepo results.
 
 Below are sectioned descriptions and usages of each implemented Monorepo Utility.
 
-[build-node-modules](#build-node-modules-)
+[Build Node Modules](#build-node-modules)
+
 ---
 
 ### Build Node Modules
