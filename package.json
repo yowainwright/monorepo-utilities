@@ -67,7 +67,7 @@
         "always",
         [
           "root",
-          "build-node-modules"
+          "install-dependencies"
         ]
       ],
       "type-enum": [
@@ -109,5 +109,8 @@
       "jest --bail --findRelatedTests"
     ]
   },
-  "prettier": "@heartly/eslint-config-typescript/dist/prettier"
+  "prettier": "@heartly/eslint-config-typescript/dist/prettier",
+  "dependencies": {
+    "sade": "^1.7.4"
+  }
 }
