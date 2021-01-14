@@ -15,7 +15,7 @@ Javascript utilities for better monorepo results.
 
 ## Packages
 
-The goal here is to make the goal there more attainable. Check out the utilities below!
+The goal here is to make the goal there more attainable. Check out this projects Monorepo Utilities below!
 
 | Package                                                                    | Utility                                     |
 | -------------------------------------------------------------------------- | ------------------------------------------- |
@@ -25,7 +25,7 @@ The goal here is to make the goal there more attainable. Check out the utilities
 
 ## Glossary
 
-Below are sectioned descriptions and usages of each implemented Monorepo Utility.
+Sectioned below, are descriptions and usages of each implemented Monorepo Utility.
 
 ---
 
@@ -35,13 +35,13 @@ Below are sectioned descriptions and usages of each implemented Monorepo Utility
 
 #### Usage
 
-```javascript
-install-dependencies <path>
-// => installs <node_modules> to a specified path
+```sh
+install-dependencies run <config> <dest>
+# => installs packages (node_modules) from a config (like package.json) to a specified path
 ```
 
 ---
 
 ## Cites
 
-There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils).
+There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils), [monorepo-utils](https://github.com/azu/monorepo-utils), [bolt](https://github.com/boltpkg/bolt), [redwoodjs](https://redwoodjs.com/).

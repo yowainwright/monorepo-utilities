@@ -4,6 +4,7 @@ import sade from 'sade'
 import * as fs from 'fs'
 import { exec } from 'child_process'
 import path from 'path'
+import { installDependencies } from 'install-dependencies'
 import pkg = require('../package.json')
 
 /**
@@ -17,6 +18,17 @@ import pkg = require('../package.json')
  * developors can enjoy module hoisting and local package referencing and not have to worry
  * about confusing nodule module folders when deploying un-bundled apps, node apps
  */
+
+
+ /**
+  * installDependencies
+  * @description the function that installs dependencies
+  * --------------------------------
+  * @summary function
+  * This function works on it's own to install dependencies asynchonously
+  */
+export installDependencies
+
 const prog = sade('install-dependencies')
 
 prog
@@ -24,52 +36,7 @@ prog
   .command('run <config> <dest>')
   .describe("installs a package.json's dependencies to a specificied path")
   .example('run package.json dist')
-  .action((config, dest) => {
-    if (!config) {
-      console.error({
-        '@monorepo-utilities/install-dependencies:error:config': config,
-      })
-      process.exit(1)
-    }
-    /**
-     * @note construct json to be read or exit the program
-     */
-    const configPath = path.resolve(process.cwd(), config)
-    const configJson = fs.existsSync(configPath) ? fs.readFileSync(configPath).toString() : ''
-    const jsonContent = JSON.parse(configJson)
-    if (!jsonContent || typeof jsonContent !== 'object') {
-      console.error({
-        '@monorepo-utilities/install-dependencies:error:packageJsonContent': jsonContent,
-      })
-      process.exit(1)
-    }
-
-    /**
-     * Bread and butter 🍞 🧈
-     * --------------------------------
-     * @description construct a dependency list
-     * 1. dependencies
-     * 2. filter packages to be ignored
-     * 3. spread in packages to include
-     * --------------------------------
-     * @note ignored packages may not have a version!
-     * @note packages to include will override dependencies!
-     */
-    const { dependencies = {}, installDependencies: { ignore = [], include = {} } = {} } = jsonContent
-    const dependenciesToInclude: string[] = Object.keys(include)
-    const filteredDependencyList = Object.entries(dependencies)
-      .filter((dependency) => {
-        const isIgnoredDependency: boolean = ignore.some((itemToIgnore: string) => dependency[0] === itemToIgnore)
-        const isPriorityIncludedDependency: boolean = dependenciesToInclude.some(
-          (dependencyToInclude) => dependency[0] === dependencyToInclude,
-        )
-        return !isIgnoredDependency && !isPriorityIncludedDependency
-      })
-      .map((dependency) => dependency.join('@'))
-    const priorityDependencyList: string[] = Object.entries(include).map((dependency) => dependency.join('@'))
-    const dependenciesToInstall = [...filteredDependencyList, ...priorityDependencyList]
-
-    dependenciesToInstall.forEach((dependency) => exec(`npm install --prefix ${dest} ${dependency} -S`))
-  })
+  .action((config, dest) => installDependencies({ config, debug: true, dest, process }))
 
 prog.parse(process.argv)
+

@@ -3,7 +3,7 @@
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 [![npm version](https://badge.fury.io/js/%40monorepo-utilities%2Fbuild-node-modules.svg)](https://badge.fury.io/js/%40monorepo-utilities%2build-node-modules)
 
-Install `package.json` dependencies to a specificied paths with control.
+Install dependencies (node_modules) from a config to a specificied destination with control.
 
 ---
 
@@ -15,11 +15,24 @@ yarn add @monorepo-utilities/build-node-modules
 
 ## Usage
 
+As a CLI
+
 ```sh
-install-dependencies <path>
+install-dependencies run <config> <dest>
+# => installs packages (node_modules) from a config (like package.json) to a specified path
 ```
 
-## API
+As a function
+
+```typescript
+import { installDependencies } from '@monorepo-utilities/install-dependencies'
+
+const dependencies = installDependencies({ <config>, <dest> })
+// => installs dependencies
+// => returns an object with installedDependencies, config, dest
+```
+
+## CLI API
 
 ```txt
   Usage
@@ -35,6 +48,11 @@ install-dependencies <path>
     -v, --version    Displays current version
     -h, --help       Displays this message
 ```
+
+## Arguments
+
+- **`<config>`**: a string path to a config file (a package.json file)
+- **`<path>`**: a string path to the desired destination of the installed dependencies
 
 ## Why
 
