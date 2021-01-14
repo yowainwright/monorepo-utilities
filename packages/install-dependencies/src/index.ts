@@ -4,7 +4,8 @@ import sade from 'sade'
 import * as fs from 'fs'
 import { exec } from 'child_process'
 import path from 'path'
-const pkg = require('../package.json')
+// ts-ignore
+import pkg = require('../package.json')
 
 /**
  * @monorepo-utilities/install-dependencies 🧱
@@ -24,7 +25,7 @@ prog
   .command('run <config> <dest>')
   .describe("installs a package.json's dependencies to a specificied path")
   .example('run package.json dist')
-  .action((config, dest, opts) => {
+  .action((config, dest) => {
     /**
      * @note construct json to be read or exit the program
      */
@@ -51,21 +52,19 @@ prog
      */
     const { dependencies = {}, installDependencies: { ignore = [], include = {} } = {} } = jsonContent
     const dependenciesToInclude: string[] = Object.keys(include)
-    const filteredDependencyList = Object.entries(dependencies).filter((dependency) => {
-      const isIgnoredDependency: boolean = ignore.some((itemToIgnore: string) => dependency[0] === itemToIgnore)
-      const isPriorityIncludedDependency: boolean = dependenciesToInclude.some(
-        (dependencyToInclude) => dependency[0] === dependencyToInclude,
-      )
-      return isIgnoredDependency && isPriorityIncludedDependency ? dependency.join('@') : null
-    })
+    const filteredDependencyList = Object.entries(dependencies)
+      .filter((dependency) => {
+        const isIgnoredDependency: boolean = ignore.some((itemToIgnore: string) => dependency[0] === itemToIgnore)
+        const isPriorityIncludedDependency: boolean = dependenciesToInclude.some(
+          (dependencyToInclude) => dependency[0] === dependencyToInclude,
+        )
+        return !isIgnoredDependency && !isPriorityIncludedDependency
+      })
+      .map((dependency) => dependency.join('@'))
     const priorityDependencyList: string[] = Object.entries(include).map((dependency) => dependency.join('@'))
     const dependenciesToInstall = [...filteredDependencyList, ...priorityDependencyList]
-    console.log({ dependenciesToInstall })
-    console.log(`> installing dependencies to ${dest}`)
-    console.log('> these are extra opts', opts)
-    dependenciesToInstall.forEach((dependency) => {
-      exec(`npm install --prefix ${dependency} -S`)
-    })
+
+    dependenciesToInstall.forEach((dependency) => exec(`npm install --prefix ${dest} ${dependency} -S`))
   })
 
 prog.parse(process.argv)

@@ -7,8 +7,6 @@
 
 Javascript utilities for better monorepo results.
 
-The goal here is to make the goal there more attainable.
-
 ---
 
 [Packages](#packages) | [Glossary](#glossary) | [Cites](#cites)
@@ -16,6 +14,8 @@ The goal here is to make the goal there more attainable.
 ---
 
 ## Packages
+
+The goal here is to make the goal there more attainable. Check out the utilities below!
 
 | Package                                                                    | Utility                                     |
 | -------------------------------------------------------------------------- | ------------------------------------------- |
@@ -27,13 +27,11 @@ The goal here is to make the goal there more attainable.
 
 Below are sectioned descriptions and usages of each implemented Monorepo Utility.
 
-[Install Dependencies](#install-dependencies)
-
 ---
 
-### Install Dependencies
+### Install Dependencies 📦
 
-**[Install Dependencies](/packages/install-dependencies) 📦** is a function which assists in building dependencies (`node_modules`) to a specified path.
+**[Install Dependencies](/packages/install-dependencies)** is a small program which assists in building dependencies (`node_modules`) to a specified path. [Read more](/packages/install-dependencies#why).
 
 #### Usage
 
@@ -41,11 +39,6 @@ Below are sectioned descriptions and usages of each implemented Monorepo Utility
 install-dependencies <path>
 // => installs <node_modules> to a specified path
 ```
-
-### Why
-
-When using various project managers for monorepos, like yarn workspaces and lerna, there are drawbacks in the DX (Developer Experience) versus deployment experience of module installation.
-By manually providing a way to specifically install `node_modules` to a specified location, developors can enjoy module hoisting and local package referencing and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
 
 ---
 
