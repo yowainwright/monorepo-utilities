@@ -19,7 +19,7 @@ The goal here is to make the goal there more attainable. Check out the utilities
 
 | Package                                                                    | Utility                                     |
 | -------------------------------------------------------------------------- | ------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs `node_modules` to a specified path |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs packages to a specified path |
 
 ---
 
@@ -31,13 +31,15 @@ Below are sectioned descriptions and usages of each implemented Monorepo Utility
 
 ### Install Dependencies 📦
 
-**[Install Dependencies](/packages/install-dependencies)** is a small program which assists in building dependencies (`node_modules`) to a specified path. [Read more](/packages/install-dependencies#why).
+**Install Dependencies** is a small function and program assisting in installing package dependencies from a config to a specified destination. [Read more](/packages/install-dependencies#why). 
+
+This utility can greatly assist in monorepos developer experience (DX). Specifically, it can assist in building deploys where installing **exact** package dependencies can benefit deployment size and time. Also, it can ensure _more_ exact package installation for build package security, build package debugging, and specified build package versions.
 
 #### Usage
 
-```javascript
-install-dependencies <path>
-// => installs <node_modules> to a specified path
+```sh
+install-dependencies run <config> <dest>
+# => installs packages (node_modules) from a config (like package.jsonto a specified path
 ```
 
 ---
