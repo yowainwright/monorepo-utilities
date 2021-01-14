@@ -56,8 +56,20 @@ const dependencies = installDependencies({ <config>, <dest> })
 
 ## Why
 
-When using various project managers for monorepos, like yarn workspaces and lerna, there are drawbacks in the DX (Developer Experience) versus deployment experience of module installation.
-By manually providing a way to specifically install `node_modules` to a specified location, developors can enjoy module hoisting and local package referencing and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
+When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna), there are drawbacks in the Developer Experience (DX) versus deployment experience of module installation.
+
+By manually providing a way to specifically install packages (node_modules) to a specified location, developors can enjoy [module hoisting](https://classic.yarnpkg.com/en/docs/workspaces/#toc-limitations-caveats) and [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
+
+## Benefits
+
+Listed below are a few benefits to using **install-dependencies**.
+
+- Developer Experience (DX)
+- Build deploys sizes
+- Build deploys build times
+- Deployment package security
+- Deployment package debugging
+- Deployment package versions
 
 ---
 
