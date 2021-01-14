@@ -26,20 +26,14 @@ install-dependencies <path>
     $ install-dependencies <command> [options]
 
   Available Commands
-    to    installs a package.json's dependencies to a specificied path
+    run    installs a package.json's dependencies to a specificied path
 
   For more info, run any command with the `--help` flag
-    $ install-dependencies to --help
+    $ install-dependencies run --help
 
   Options
-    --ignore           ignore specific dependencies
-    -include, --inc    include specific dependencies
-    -v, --version      Displays current version
-    -h, --help         Displays this message
-
-  Examples
-    $ install-dependencies to dist --ignore [lodash, jquery]
-    $ install-dependencies to dist --include .dependenciesrc
+    -v, --version    Displays current version
+    -h, --help       Displays this message
 ```
 
 ## Why

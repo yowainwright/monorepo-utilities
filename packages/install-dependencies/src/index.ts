@@ -4,7 +4,6 @@ import sade from 'sade'
 import * as fs from 'fs'
 import { exec } from 'child_process'
 import path from 'path'
-// ts-ignore
 import pkg = require('../package.json')
 
 /**
@@ -26,6 +25,12 @@ prog
   .describe("installs a package.json's dependencies to a specificied path")
   .example('run package.json dist')
   .action((config, dest) => {
+    if (!config) {
+      console.error({
+        '@monorepo-utilities/install-dependencies:error:config': config,
+      })
+      process.exit(1)
+    }
     /**
      * @note construct json to be read or exit the program
      */
