@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
 import sade from 'sade'
-import * as fs from 'fs-extra'
-import execa from 'execa'
+import * as fs from 'fs'
+import { exec } from 'child_process'
 import path from 'path'
 const pkg = require('../package.json')
-const prog = sade('install-dependencies')
 
 /**
- * install-dependencies 🧱
- * @description installed package.json dependencies to a specificied paths
+ * @monorepo-utilities/install-dependencies 🧱
+ * @description installs package.json dependencies to a specificied paths
  * --------------------------------
  * @summary Why?
  * When using various project managers, like yarn workspaces and lerna
@@ -18,21 +17,55 @@ const prog = sade('install-dependencies')
  * developors can enjoy module hoisting and local package referencing and not have to worry
  * about confusing nodule module folders when deploying un-bundled apps, node apps
  */
+const prog = sade('install-dependencies')
+
 prog
   .version(pkg.version)
-  .command('to <path>')
+  .command('run <config> <dest>')
   .describe("installs a package.json's dependencies to a specificied path")
-  .example('to dist')
-  .option('--ignore, -i', 'ignore specific dependencies')
-  .example('to dist --ignore [lodash, jquery]')
-  .option('--include, -inc', 'include specific dependencies')
-  .example('to dist --include .dependenciesrc')
-  .action((path, opts) => {
+  .example('run package.json dist')
+  .action((config, dest, opts) => {
     /**
-     * @todo the whole thing
+     * @note construct json to be read or exit the program
      */
-    console.log(`> installing dependencies to ${path}`)
+    const configPath = path.resolve(process.cwd(), config)
+    const configJson = fs.existsSync(configPath) ? fs.readFileSync(configPath).toString() : ''
+    const jsonContent = JSON.parse(configJson)
+    if (!jsonContent || typeof jsonContent !== 'object') {
+      console.error({
+        '@monorepo-utilities/install-dependencies:error:packageJsonContent': jsonContent,
+      })
+      process.exit(1)
+    }
+
+    /**
+     * Bread and butter 🍞 🧈
+     * --------------------------------
+     * @description construct a dependency list
+     * 1. dependencies
+     * 2. filter packages to be ignored
+     * 3. spread in packages to include
+     * --------------------------------
+     * @note ignored packages may not have a version!
+     * @note packages to include will override dependencies!
+     */
+    const { dependencies = {}, installDependencies: { ignore = [], include = {} } = {} } = jsonContent
+    const dependenciesToInclude: string[] = Object.keys(include)
+    const filteredDependencyList = Object.entries(dependencies).filter((dependency) => {
+      const isIgnoredDependency: boolean = ignore.some((itemToIgnore: string) => dependency[0] === itemToIgnore)
+      const isPriorityIncludedDependency: boolean = dependenciesToInclude.some(
+        (dependencyToInclude) => dependency[0] === dependencyToInclude,
+      )
+      return isIgnoredDependency && isPriorityIncludedDependency ? dependency.join('@') : null
+    })
+    const priorityDependencyList: string[] = Object.entries(include).map((dependency) => dependency.join('@'))
+    const dependenciesToInstall = [...filteredDependencyList, ...priorityDependencyList]
+    console.log({ dependenciesToInstall })
+    console.log(`> installing dependencies to ${dest}`)
     console.log('> these are extra opts', opts)
+    dependenciesToInstall.forEach((dependency) => {
+      exec(`npm install --prefix ${dependency} -S`)
+    })
   })
 
 prog.parse(process.argv)

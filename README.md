@@ -7,6 +7,8 @@
 
 Javascript utilities for better monorepo results.
 
+The goal here is to make the goal there more attainable.
+
 ---
 
 [Packages](#packages) | [Glossary](#glossary) | [Cites](#cites)
@@ -15,9 +17,9 @@ Javascript utilities for better monorepo results.
 
 ## Packages
 
-| Package                                                                | Utility                       |
-| ---------------------------------------------------------------------- | ----------------------------- |
-| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build node_modules directories with control |
+| Package                                                                    | Utility                                     |
+| -------------------------------------------------------------------------- | ------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs `node_modules` to a specified path |
 
 ---
 
@@ -25,27 +27,28 @@ Javascript utilities for better monorepo results.
 
 Below are sectioned descriptions and usages of each implemented Monorepo Utility.
 
-[Build Node Modules](#build-node-modules)
+[Install Dependencies](#install-dependencies)
 
 ---
 
-### Build Node Modules
+### Install Dependencies
 
-**[Build Node Modules](/packages/build-node-modules)** is a function which assists in building a perfect node_module directory for dist.
+**[Install Dependencies](/packages/install-dependencies) 📦** is a function which assists in building dependencies (`node_modules`) to a specified path.
 
 #### Usage
 
 ```javascript
-build-node-modules <package.json> 
-// => generate magic 🪄
+install-dependencies <path>
+// => installs <node_modules> to a specified path
 ```
 
-#### Why
+### Why
 
-Often, either when installing a bunch of packages using `npm i` for each monorepo package, or when trouble shooting [yarn workspaces hoisting](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/), it would be easier to declaritavely build the node_modules directory you want with control. This is what **Build Node Modules** does.
+When using various project managers for monorepos, like yarn workspaces and lerna, there are drawbacks in the DX (Developer Experience) versus deployment experience of module installation.
+By manually providing a way to specifically install `node_modules` to a specified location, developors can enjoy module hoisting and local package referencing and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
 
 ---
 
 ## Cites
 
-There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils). 
+There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils).

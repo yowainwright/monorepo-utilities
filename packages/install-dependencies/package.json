@@ -1,10 +1,10 @@
 {
-  "name": "@monorepo-utilities/build-node-modules",
-  "version": "0.0.1",
-  "description": "Builds node modules to spec 👷",
+  "name": "@monorepo-utilities/install-dependencies",
+  "version": "0.1.0",
+  "description": "Builds node modules to a spectified path 📦",
   "main": "dist/index.js",
   "bin": {
-    "build-node-modules": "./dist/index.js"
+    "install-dependencies": "./dist/index.js"
   },
   "keywords": [
     "node_modules",
@@ -20,7 +20,8 @@
     "url": "git+https://github.com/yowainwright/monorepo-utilities.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc",
+    "clean": "rimraf dist"
   },
   "bugs": {
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"

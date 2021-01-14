@@ -10,14 +10,24 @@
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ink": "^3.0.8",
+    "sade": "^1.7.4"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-lerna-scopes": "^11.0.0",
     "@commitlint/prompt": "^11.0.0",
     "@heartly/eslint-config-typescript": "^0.0.2",
     "@heartly/prettier-config": "^0.0.1",
-    "@types/jest": "^26.0.18",
+    "@types/chalk": "^2.2.0",
+    "@types/eslint": "^7.2.6",
+    "@types/fs-extra": "^9.0.6",
+    "@types/ink": "^2.0.3",
+    "@types/jest": "^26.0.20",
     "@types/node": "^14.14.11",
+    "@types/sade": "^1.7.2",
     "commitizen": "^4.2.2",
     "eslint": "^7.15.0",
     "husky": "^4.3.5",
@@ -109,8 +119,5 @@
       "jest --bail --findRelatedTests"
     ]
   },
-  "prettier": "@heartly/eslint-config-typescript/dist/prettier",
-  "dependencies": {
-    "sade": "^1.7.4"
-  }
+  "prettier": "@heartly/eslint-config-typescript/dist/prettier"
 }
