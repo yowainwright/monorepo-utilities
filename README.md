@@ -15,9 +15,11 @@ Javascript utilities for better monorepo results.
 
 ## Packages
 
-| Package                                                                | Utility                       |
-| ---------------------------------------------------------------------- | ----------------------------- |
-| [@monorepo-utilities/build-node-modules](/packages/build-node-modules) | build node_modules directories with control |
+The goal here is to make the goal there more attainable. Check out the utilities below!
+
+| Package                                                                    | Utility                                     |
+| -------------------------------------------------------------------------- | ------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs `node_modules` to a specified path |
 
 ---
 
@@ -25,27 +27,21 @@ Javascript utilities for better monorepo results.
 
 Below are sectioned descriptions and usages of each implemented Monorepo Utility.
 
-[Build Node Modules](#build-node-modules)
-
 ---
 
-### Build Node Modules
+### Install Dependencies 📦
 
-**[Build Node Modules](/packages/build-node-modules)** is a function which assists in building a perfect node_module directory for dist.
+**[Install Dependencies](/packages/install-dependencies)** is a small program which assists in building dependencies (`node_modules`) to a specified path. [Read more](/packages/install-dependencies#why).
 
 #### Usage
 
 ```javascript
-build-node-modules <package.json> 
-// => generate magic 🪄
+install-dependencies <path>
+// => installs <node_modules> to a specified path
 ```
-
-#### Why
-
-Often, either when installing a bunch of packages using `npm i` for each monorepo package, or when trouble shooting [yarn workspaces hoisting](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/), it would be easier to declaritavely build the node_modules directory you want with control. This is what **Build Node Modules** does.
 
 ---
 
 ## Cites
 
-There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils). 
+There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils).
