@@ -6,11 +6,25 @@
   "bin": {
     "install-dependencies": "./dist/index.js"
   },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ink": "^3.0.8",
+    "react": "^17.0.1",
+    "sade": "^1.7.4"
+  },
   "keywords": [
     "node_modules",
     "build",
     "environment",
-    "dist"
+    "dist",
+    "installing",
+    "package-management",
+    "node-apps",
+    "node-services",
+    "services",
+    "monorepos",
+    "yarn",
+    "yarn-workspaces"
   ],
   "author": "yowainwright <yowainwright@gmail.com>",
   "homepage": "https://github.com/yowainwright/monorepo-utilities#readme",
@@ -25,5 +39,20 @@
   },
   "bugs": {
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"
+  },
+  "jest": {
+    "name": "@common-utilities/compose",
+    "projects": [
+      "<rootDir>/packages/*"
+    ],
+    "resetMocks": true,
+    "rootDir": "./",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    }
   }
 }
