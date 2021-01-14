@@ -6,6 +6,12 @@
   "bin": {
     "install-dependencies": "./dist/index.js"
   },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ink": "^3.0.8",
+    "react": "^17.0.1",
+    "sade": "^1.7.4"
+  },
   "keywords": [
     "node_modules",
     "build",
