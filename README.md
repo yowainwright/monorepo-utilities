@@ -11,11 +11,11 @@ Javascript utilities for better monorepo results.
 
 ## Packages
 
-The goal here is to make the goal there more attainable. Check out this projects Monorepo Utilities below!
+The goal here is to make the goal there more attainable. Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                    | Utility                               |
-| -------------------------------------------------------------------------- | ------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs packages to a specified path |
+| Package                                                                    | Utility                                                  |
+| -------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs exact packages to a specified path with control |
 
 ---
 
