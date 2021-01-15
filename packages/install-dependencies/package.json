@@ -1,15 +1,16 @@
 {
   "name": "@monorepo-utilities/install-dependencies",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Builds node modules to a spectified path 📦",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "install-dependencies": "./dist/index.js"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "ink": "^3.0.8",
-    "react": "^17.0.1",
     "sade": "^1.7.4"
   },
   "keywords": [

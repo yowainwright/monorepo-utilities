@@ -155,7 +155,3 @@ Javascript utilities for better monorepo results.
 ---
 
 View other [monorepo utilities](../../).
-
-```
-
-```
