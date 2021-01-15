@@ -91,7 +91,7 @@ Listed below are a few benefits to using **install-dependencies**.
 
 ## Use Case
 
-Consider the following paragraph to decide whether **install-dependencies** can assist your project!
+Consider the following paragraphs to decide whether **install-dependencies** can assist your project!
 
 ### Deployment node app woos
 
