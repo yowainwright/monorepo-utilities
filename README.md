@@ -13,9 +13,9 @@ Javascript utilities for better monorepo results.
 
 Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                    | Utility                                                                                                                                                                                                                                        |
-| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages (`node_modules`) to a specified path with control! The output of running/invoking this utility is a more exact, small(er), and secure `node_module` directory which assists in deploying unbundled node apps/services. |
+| Package                                                                    | Utility                                                                                               |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages to a specified path with control! [Read more](/packages/install-dependencies) |
 
 ---
 
