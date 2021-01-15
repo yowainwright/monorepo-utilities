@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-utilities/install-dependencies",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Builds node modules to a spectified path 📦",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
