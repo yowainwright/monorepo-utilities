@@ -53,7 +53,7 @@
     "lint:ci": "yarn lint:cmd",
     "lint:cmd": "eslint . --ext '.ts'",
     "test": "yarn test:cmd",
-    "test:ci": "yarn test:cmd --ci --maxWorkers=4 --noStackTrace --testTimeout=10000",
+    "test:ci": "yarn test:cmd --ci --maxWorkers=4 --noStackTrace --testTimeout=15000",
     "test:cmd": "jest --maxWorkers=4 --collectCoverage=true",
     "deploy": "yarn build && lerna publish from-package --ignore-scripts --canary --yes",
     "deploy:all": "yarn build && lerna publish --ignore-scripts",
