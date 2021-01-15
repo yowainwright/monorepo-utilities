@@ -5,7 +5,7 @@
 
 **Utilities for monorepo development.**
 
-Javascript utilities for better monorepo results.
+Monorepo utilities for better monorepo results.
 
 ---
 
