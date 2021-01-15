@@ -74,7 +74,7 @@ Within a config (`package.json`) an `installDepedencies` object can optionally b
 
 ## Why
 
-When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna), there are drawbacks in the Developer Experience (DX) versus deployment experience of module installation.
+When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna), there are drawbacks in the Developer Experience (DX) versus Deployment Experience of module installation.
 
 By manually providing a way to specifically install packages (node_modules) to a specified location, developors can enjoy [module hoisting](https://classic.yarnpkg.com/en/docs/workspaces/#toc-limitations-caveats) and [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
 
@@ -93,13 +93,13 @@ Listed below are a few benefits to using **install-dependencies**.
 
 Consider the following paragraphs to decide whether **install-dependencies** can assist your project!
 
-### Deployment node app woos
+### Deployment Node App Woos
 
-Deploying a node app with it's corresponding `node_modules` produces a large build artifact! Now imagine a monorepo which has multiple node apps and uses a yarn workspaces. [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) greatly help with developer experience by hoisting `node_modules`.
+Deploying a node app with it's corresponding `node_modules` produces a large build artifact! Now imagine a monorepo which has multiple node apps and uses yarn workspaces. [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) greatly helps with developer experience by hoisting `node_modules` making package install times faster and linking local packages automatically.
 
 However, when building a build artifact for deployment, those same gains from [Yarn Workspace Hoisting](https://classic.yarnpkg.com/en/docs/workspaces/) will product a **large** `node_module` directory! On top of that, an extra build step may be required for including [local package dependencies](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) (`"@foo/bar": "file:../packages/bar/dist"`).
 
-The results of this scenerio described above are build artifacts that are too big to be deployed and long cumbersome build times while waiting for a node app's local dependencies to build. Furthermore, dependencies specified in the node app's `package.json`'s dependencies may be different based on hoisting.
+The results of the scenerio described above are build artifacts that are too big to be deployed and long cumbersome build times while waiting for a node app's local dependencies to build. Furthermore, dependencies specified in the node app's `package.json`'s dependencies may be a different version based on hoisting.
 
 **install-dependencies** to the rescue! By using **install-dependencies**, we can specify exactly what dependencies must be installed!
 
