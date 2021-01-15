@@ -55,7 +55,7 @@
     "test": "yarn test:cmd",
     "test:ci": "yarn test:cmd --ci --maxWorkers=4 --noStackTrace --testTimeout=15000",
     "test:cmd": "jest --maxWorkers=4 --collectCoverage=true",
-    "deploy": "yarn build && lerna publish from-package --ignore-scripts --canary --yes",
+    "deploy": "yarn build && lerna publish from-package --ignore-scripts --yes",
     "deploy:all": "yarn build && lerna publish --ignore-scripts",
     "refresh": "lerna clean && rm -rf node_modules && yarn",
     "tsc": "tsc -p ./tsconfig.test.json"
