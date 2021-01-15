@@ -3,7 +3,7 @@
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 [![npm version](https://badge.fury.io/js/%40monorepo-utilities%2Fbuild-node-modules.svg)](https://badge.fury.io/js/%40monorepo-utilities%2build-node-modules)
 
-Install dependencies (node_modules) from a config to a specificied destination with control.
+Installs dependencies from a config to a destination with control.
 
 ---
 
@@ -28,7 +28,7 @@ As a function
 import { installDependencies } from '@monorepo-utilities/install-dependencies'
 
 const dependencies = installDependencies({ <config>, <dest> })
-// => installs dependencies
+// => installs dependencies from a package.json (<config>) to the specified destination (<dest>)
 // => returns an object with installedDependencies, config, dest
 ```
 

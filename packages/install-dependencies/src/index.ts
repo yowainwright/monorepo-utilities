@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 
 import sade from 'sade'
-import * as fs from 'fs'
-import { exec } from 'child_process'
-import path from 'path'
-import { installDependencies } from 'install-dependencies'
+import { installDependencies } from './install-dependencies'
 import pkg = require('../package.json')
 
 /**
@@ -19,15 +16,13 @@ import pkg = require('../package.json')
  * about confusing nodule module folders when deploying un-bundled apps, node apps
  */
 
-
- /**
-  * installDependencies
-  * @description the function that installs dependencies
-  * --------------------------------
-  * @summary function
-  * This function works on it's own to install dependencies asynchonously
-  */
-export installDependencies
+/**
+ * installDependencies
+ * @description the function that installs dependencies
+ * --------------------------------
+ * @summary function
+ * This function works on it's own to install dependencies asynchonously
+ */
 
 const prog = sade('install-dependencies')
 
@@ -40,3 +35,4 @@ prog
 
 prog.parse(process.argv)
 
+export { installDependencies }
