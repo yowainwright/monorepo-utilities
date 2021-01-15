@@ -5,17 +5,17 @@
 
 **Utilities for monorepo development.**
 
-Javascript utilities for better monorepo results.
+Monorepo utilities for better monorepo results.
 
 ---
 
 ## Packages
 
-The goal here is to make the goal there more attainable. Check out this projects Monorepo Utilities packages below!
+Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                    | Utility                                                  |
-| -------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs exact packages to a specified path with control |
+| Package                                                                    | Utility                                                   |
+| -------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages to a specified path with control! |
 
 ---
 
@@ -27,7 +27,7 @@ Sectioned below, are descriptions and usages of each implemented Monorepo Utilit
 
 ### Install Dependencies 📦
 
-**Install Dependencies** is a small function and program assisting in installing package dependencies from a config to a specified destination. [Read more](/packages/install-dependencies#why).
+**Install Dependencies** is a small function and CLI program assisting in installing package dependencies from a config (`package.json`) to a specified destination (in example, `/dist`). [Read more](/packages/install-dependencies#why).
 
 This utility can greatly assist in monorepos developer experience (DX). Specifically, it can assist in building deploys where installing **exact** package dependencies can benefit deployment size and time. Also, it can ensure _more_ exact package installation for build package security, build package debugging, and specified build package versions.
 
