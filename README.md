@@ -9,29 +9,25 @@ Javascript utilities for better monorepo results.
 
 ---
 
-[Packages](#packages) | [Glossary](#glossary) | [Cites](#cites)
-
----
-
 ## Packages
 
-The goal here is to make the goal there more attainable. Check out the utilities below!
+The goal here is to make the goal there more attainable. Check out this projects Monorepo Utilities below!
 
-| Package                                                                    | Utility                                     |
-| -------------------------------------------------------------------------- | ------------------------------------------- |
+| Package                                                                    | Utility                               |
+| -------------------------------------------------------------------------- | ------------------------------------- |
 | [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | installs packages to a specified path |
 
 ---
 
 ## Glossary
 
-Below are sectioned descriptions and usages of each implemented Monorepo Utility.
+Sectioned below, are descriptions and usages of each implemented Monorepo Utility.
 
 ---
 
 ### Install Dependencies 📦
 
-**Install Dependencies** is a small function and program assisting in installing package dependencies from a config to a specified destination. [Read more](/packages/install-dependencies#why). 
+**Install Dependencies** is a small function and program assisting in installing package dependencies from a config to a specified destination. [Read more](/packages/install-dependencies#why).
 
 This utility can greatly assist in monorepos developer experience (DX). Specifically, it can assist in building deploys where installing **exact** package dependencies can benefit deployment size and time. Also, it can ensure _more_ exact package installation for build package security, build package debugging, and specified build package versions.
 
@@ -39,11 +35,11 @@ This utility can greatly assist in monorepos developer experience (DX). Specific
 
 ```sh
 install-dependencies run <config> <dest>
-# => installs packages (node_modules) from a config (like package.jsonto a specified path
+# => installs packages (node_modules) from a config (like package.json) to a specified path
 ```
 
 ---
 
 ## Cites
 
-There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils).
+There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils), [monorepo-utils](https://github.com/azu/monorepo-utils), [bolt](https://github.com/boltpkg/bolt), [redwoodjs](https://redwoodjs.com/).
