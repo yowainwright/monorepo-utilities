@@ -63,7 +63,7 @@ Within a config (`package.json`) an `installDepedencies` object can optionally b
     "include": {
       "react": "17.0.1",
       "@babel/core": "7.12.10",
-      "typescript": "4.1.2"
+      "typescript": "4.1.2",
       "@foo/bar": "@latest"
     },
     "ignore": [
@@ -120,7 +120,7 @@ Here's an example output of a config (`package.json`) can look if all scenerios 
     "include": {
       "react": "17.0.1",
       "@babel/core": "7.12.10",
-      "typescript": "4.1.2"
+      "typescript": "4.1.2",
       "@foo/bar": "@latest"
     },
     "ignore": [
