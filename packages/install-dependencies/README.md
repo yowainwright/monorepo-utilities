@@ -56,6 +56,22 @@ const dependencies = installDependencies({ <config>, <dest> })
 
 ## Added Specificity Options
 
+Within a config (`package.json`) an `installDepedencies` object can optionally be added. It can optionally include an `ignore` array or an `include` object.
+
+```json
+"installDependencies": {
+    "include": {
+      "react": "17.0.1",
+      "@babel/core": "7.12.10",
+      "typescript": "4.1.2"
+      "@foo/bar": "@latest"
+    },
+    "ignore": [
+      "ramda"
+    ]
+  }
+```
+
 ## Why
 
 When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna), there are drawbacks in the Developer Experience (DX) versus deployment experience of module installation.
