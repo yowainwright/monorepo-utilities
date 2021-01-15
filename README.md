@@ -13,9 +13,9 @@ Javascript utilities for better monorepo results.
 
 Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                    | Utility                                                                                               |
-| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages to a specified path with control! [Read more](/packages/install-dependencies) |
+| Package                                                                    | Utility                                                   |
+| -------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages to a specified path with control! |
 
 ---
 
