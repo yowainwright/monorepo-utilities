@@ -51,7 +51,7 @@ const dependencies = installDependencies({ <config>, <dest> })
 
 ## Arguments
 
-- **`<config>`**: a string path to a config file (a package.json file)
+- **`<config>`**: a string path to a config file (a `package.json` file)
 - **`<path>`**: a string path to the desired destination of the installed dependencies
 
 ## Added Specificity Options
@@ -103,7 +103,7 @@ The results of the scenerio described above are build artifacts that are too big
 
 **install-dependencies** to the rescue! By using **install-dependencies**, we can specify exactly what dependencies must be installed!
 
-### How installing dependencies helps
+### How install-dependencies helps
 
 Here's a short list of how **install-dependencies** helps!
 
@@ -111,7 +111,7 @@ Here's a short list of how **install-dependencies** helps!
 - **install-dependencies** will optionally ignore dependencies specified in a config (a `package.json`)'s `installDependencies.ignore` array.
 - **install-dependencies** will optionally override dependencies or add dependencies specified in a config (a `package.json`)'s `installDependencies.include` object.
 
-Here's an example output of a config (`package.json`) can look if all scenerios listed above are used:
+Here's an example config (`package.json`) with the `installDependencies` object included:
 
 ```json
 "dependencies": {
@@ -145,6 +145,21 @@ typescript@4.1.2 // note: NOT 4.1.3
 ```
 
 ---
+
+## Roadmap
+
+Here are a few features that will be added momentarily:
+
+- a tested config that is not a `package.json`
+- the option to add `devDependencies`
+- the option to add `peerDependencies`
+- potentially more flags to improve the build time/size
+- a white goat with one horn that is mistaken for a unicorn constantly 🦄
+
+## Thanks
+
+- Thanks [Luke Edwards](https://github.com/lukeed) for [Sade](https://github.com/lukeed/sade).
+- Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
 
 ## Monorepo Utilities 🧱
 
