@@ -40,6 +40,11 @@ install-dependencies run <config> <dest>
 
 ---
 
+## Thanks
+
+- Thanks [Luke Edwards](https://github.com/lukeed) for [Sade](https://github.com/lukeed/sade).
+- Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
+
 ## Cites
 
 There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils), [monorepo-utils](https://github.com/azu/monorepo-utils), [bolt](https://github.com/boltpkg/bolt), [redwoodjs](https://redwoodjs.com/).
