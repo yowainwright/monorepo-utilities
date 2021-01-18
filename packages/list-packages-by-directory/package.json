@@ -1,7 +1,7 @@
 {
-  "name": "@monorepo-utilities/install-dependencies",
-  "version": "0.1.6",
-  "description": "Builds node modules to a spectified path 📦",
+  "name": "@monorepo-utilities/list-packages-by-directory",
+  "version": "0.1.0",
+  "description": "List packages by directory ፨",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -11,19 +11,18 @@
     "install-dependencies": "./dist/index.js"
   },
   "dependencies": {
-    "sade": "^1.7.4"
+    "sade": "^1.7.4",
+    "tiny-glob": "^0.2.8"
   },
   "keywords": [
     "node_modules",
-    "build",
+    "list",
+    "glob",
     "environment",
-    "dist",
     "installing",
-    "package-management",
-    "node-apps",
-    "node-services",
-    "services",
+    "lerna",
     "monorepos",
+    "package-management",
     "yarn",
     "yarn-workspaces"
   ],
@@ -45,7 +44,7 @@
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"
   },
   "jest": {
-    "name": "@monorepo-utilities/install-dependencies",
+    "name": "@monorepo-utilities/list-packages-by-directory",
     "projects": [
       "<rootDir>/packages/*"
     ],

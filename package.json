@@ -14,7 +14,8 @@
     "chalk": "^4.1.0",
     "ink": "^3.0.8",
     "react": "^17.0.1",
-    "sade": "^1.7.4"
+    "sade": "^1.7.4",
+    "tiny-glob": "^0.2.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -80,7 +81,8 @@
         "always",
         [
           "root",
-          "install-dependencies"
+          "install-dependencies",
+          "list-packages-by-directory"
         ]
       ],
       "type-enum": [
