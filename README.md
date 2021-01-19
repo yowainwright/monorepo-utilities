@@ -13,9 +13,10 @@ Monorepo utilities for better monorepo results.
 
 Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                    | Utility                                                   |
-| -------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) | Installs exact packages to a specified path with control! |
+| Package                                                                                | Utility                                                        |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies)             | Installs exact packages to a specified path with control!      |
+| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) | Writes a list in string format of each package to a directory. |
 
 ---
 
@@ -25,9 +26,9 @@ Sectioned below, are descriptions and usages of each implemented Monorepo Utilit
 
 ---
 
-### Install Dependencies 📦
+### Install-Dependencies 📦
 
-**Install Dependencies** is a small function and CLI program assisting in installing package dependencies from a config (`package.json`) to a specified destination (in example, `/dist`). [Read more](/packages/install-dependencies#why).
+**Install-Dependencies** is a small function and CLI program assisting in installing package dependencies from a config (`package.json`) to a specified destination (in example, `/dist`). [Read more](/packages/install-dependencies#why).
 
 This utility can greatly assist in monorepos developer experience (DX). Specifically, it can assist in building deploys where installing **exact** package dependencies can benefit deployment size and time. Also, it can ensure _more_ exact package installation for build package security, build package debugging, and specified build package versions.
 
@@ -39,6 +40,12 @@ install-dependencies run <config> <dest>
 ```
 
 ---
+
+### List-packages-by-directory
+
+**List-packages-by-directory** is a small function and CLI program which returns a list of each package in a directory by name. [Read more](/packages/list-packages-by-directory#why)
+
+This utility can assist if a monorepo has multiple areas where a packages are stored. In example, if there are packages that exist in apps, services, and in packages, this utility can help scope loading testing and installing of packages to that scope!
 
 ## Thanks
 
