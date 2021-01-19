@@ -34,18 +34,49 @@ This utility can greatly assist in monorepos developer experience (DX). Specific
 
 #### Usage
 
+CLI Program
+
 ```sh
 install-dependencies run <config> <dest>
 # => installs packages (node_modules) from a config (like package.json) to a specified path
 ```
 
+Function
+
+```typescript
+import { installDependencies } from '@monorepo-utilities/install-dependencies'
+
+const dependencies = installDependencies({ <config>, <dest> })
+// => installs dependencies from a package.json (<config>) to the specified destination (<dest>)
+// => returns an object with installedDependencies, config, dest
+```
+
 ---
 
-### List-packages-by-directory
+### List-packages-by-directory ፨
 
 **List-packages-by-directory** is a small function and CLI program which returns a list of each package in a directory by name. [Read more](/packages/list-packages-by-directory#why)
 
 This utility can assist if a monorepo has multiple areas where a packages are stored. In example, if there are packages that exist in apps, services, and in packages, this utility can help scope loading testing and installing of packages to that scope!
+
+#### Usage
+
+CLI Program
+
+```sh
+list-packages-by-directory from <dir>
+# => '{@foo/bar,@foo/biz,@foo/baz}'
+```
+
+Function
+
+```typescript
+import { listPackagesByDirectory } from '@monorepo-utilities/list-packages-by-directory'
+
+const directoryList = listPackagesByDirectory({ <dir> })
+// => writes a list in string format from a directory
+// => returns an array of strings containing each
+```
 
 ## Thanks
 
