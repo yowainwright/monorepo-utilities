@@ -3,7 +3,7 @@
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 [![npm version](https://badge.fury.io/js/%40monorepo-utilities%2Flist-packages-by-directory.svg)](https://www.npmjs.com/package/@monorepo-utilities/list-packages-by-directory)
 
-Writes a list in string format of each package's name key to a directory.
+Writes a list in string format of each package's name to a directory.
 
 ---
 
