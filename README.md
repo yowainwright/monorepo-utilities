@@ -44,6 +44,7 @@ install-dependencies run <config> <dest>
 
 - Thanks [Luke Edwards](https://github.com/lukeed) for [Sade](https://github.com/lukeed/sade).
 - Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
+- Thanks [Will Jacobson](https://github.com/willzjacobson) for listening to my concepts before implementing initial takes on these utilities.
 
 ## Cites
 

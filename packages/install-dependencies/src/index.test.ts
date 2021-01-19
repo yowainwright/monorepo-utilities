@@ -19,11 +19,11 @@ const standardTestDirectory = 'standard/'
 const cleanUpTestDirectory = () => exec(`rm -rf ${testDirectory}`)
 
 describe('install-dependencies', () => {
-  it('installed dependencies', (done) => {
+  it('installed dependencies', async (done) => {
     const config = `${configFixtureDirectory}${standardTestPackageJson}`
     const dest = `${testDirectory}${standardTestDirectory}`
     const script = `${runInstallDependencies} ${config} ${dest}`
-    exec(script, () => {
+    await exec(script, () => {
       const isTestFolderEmpty = fs.readdirSync(dest)
       expect(isTestFolderEmpty.length).toEqual(2)
       cleanUpTestDirectory()
