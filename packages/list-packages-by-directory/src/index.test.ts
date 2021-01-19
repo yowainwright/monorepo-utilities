@@ -12,6 +12,7 @@ describe('list-packages-by-directory', () => {
   it('lists packages', (done) => {
     const string = `${runListPackagesByDirectory} ${fixtureDirectory}apps`
     exec(string, (_, stdout) => {
+      console.log('here 1')
       expect(stdout).toEqual('{@test/bar-app,@test/foo-app}')
       done()
     })

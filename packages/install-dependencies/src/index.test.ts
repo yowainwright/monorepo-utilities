@@ -24,6 +24,7 @@ describe('install-dependencies', () => {
     const dest = `${testDirectory}${standardTestDirectory}`
     const script = `${runInstallDependencies} ${config} ${dest}`
     exec(script, () => {
+      console.log('here 2')
       const isTestFolderEmpty = fs.readdirSync(dest)
       expect(isTestFolderEmpty.length).toEqual(2)
       cleanUpTestDirectory()
