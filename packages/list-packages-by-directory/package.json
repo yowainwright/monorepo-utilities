@@ -8,7 +8,7 @@
     "dist"
   ],
   "bin": {
-    "install-dependencies": "./dist/index.js"
+    "list-packages-by-directory": "./dist/index.js"
   },
   "dependencies": {
     "sade": "^1.7.4",
