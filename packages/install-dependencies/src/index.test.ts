@@ -19,7 +19,7 @@ const standardTestDirectory = 'standard/'
 const cleanUpTestDirectory = () => exec(`rm -rf ${testDirectory}`)
 
 describe('install-dependencies', () => {
-  it('installed dependencies', (done) => {
+  it.only('installed dependencies', (done) => {
     const config = `${configFixtureDirectory}${standardTestPackageJson}`
     const dest = `${testDirectory}${standardTestDirectory}`
     const script = `${runInstallDependencies} ${config} ${dest}`
