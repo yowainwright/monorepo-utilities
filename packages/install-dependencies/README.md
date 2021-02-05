@@ -10,7 +10,7 @@ Installs dependencies from a config to a destination with control!
 ## Install
 
 ```sh
-yarn add @monorepo-utilities/build-node-modules
+pnpm install @monorepo-utilities/build-node-modules
 ```
 
 ## Usage
