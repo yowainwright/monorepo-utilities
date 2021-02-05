@@ -2,7 +2,7 @@
 
 import sade from 'sade'
 import { installDependencies } from './install-dependencies'
-import pkg = require('../package.json')
+const pkg = require('../package.json') // eslint-disable-line
 
 /**
  * @monorepo-utilities/install-dependencies 🧱
