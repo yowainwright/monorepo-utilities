@@ -2,8 +2,7 @@
 
 import sade from 'sade'
 import { listPackagesByDirectory } from './list-packages-by-directory'
-import pkg = require('../package.json')
-
+const pkg = require('../package.json') // eslint-disable-line
 const prog = sade('install-dependencies')
 
 prog

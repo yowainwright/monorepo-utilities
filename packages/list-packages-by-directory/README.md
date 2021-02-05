@@ -10,7 +10,7 @@ Writes a list in string format of each package's name to a directory.
 ## Install
 
 ```sh
-yarn add @monorepo-utilities/list-packages-by-directory
+pnpm install @monorepo-utilities/list-packages-by-directory
 ```
 
 ## Usage

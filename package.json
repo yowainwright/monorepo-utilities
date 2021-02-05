@@ -7,13 +7,7 @@
   "author": "yowainwright <yowainwright@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
-    "chalk": "^4.1.0",
-    "ink": "^3.0.8",
-    "react": "^17.0.1",
     "sade": "^1.7.4",
     "tiny-glob": "^0.2.8"
   },
@@ -23,10 +17,8 @@
     "@commitlint/prompt": "^11.0.0",
     "@heartly/eslint-config-typescript": "0.0.4",
     "@heartly/prettier-config": "^0.0.1",
-    "@types/chalk": "^2.2.0",
     "@types/eslint": "^7.2.6",
     "@types/fs-extra": "^9.0.6",
-    "@types/ink": "^2.0.3",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.14.11",
     "@types/react": "^17.0.0",
@@ -37,27 +29,27 @@
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
+    "pnpm": "^5.16.0",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^25.2.1",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.3",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "yarnhook": "^0.5.1"
   },
   "scripts": {
-    "build": "yarn clean:dist && yarn build:dist",
+    "build": "pnpm run clean:dist && pnpm run build:dist",
     "build:dist": "lerna run build",
     "clean": "lerna clean",
     "clean:dist": "lerna run clean",
-    "ci": "run-s lint:ci tsc test:ci",
-    "lint": "yarn lint:cmd --fix",
-    "lint:ci": "yarn lint:cmd",
-    "lint:cmd": "eslint . --ext '.ts'",
-    "test": "yarn test:cmd",
-    "test:cmd": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=10000",
-    "deploy": "yarn build && lerna publish from-package --ignore-scripts --yes",
-    "deploy:all": "yarn build && lerna publish --ignore-scripts",
-    "refresh": "lerna clean && rm -rf node_modules && yarn",
+    "lint": "eslint . --ext '.ts' --fix",
+    "lint:ci": "eslint . --ext '.ts'",
+    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=10000",
+    "deploy": "pnpm run build && lerna publish from-package --ignore-scripts --yes",
+    "deploy:all": "pnpm run build && lerna publish --ignore-scripts",
+    "refresh": "lerna clean && rm -rf node_modules && pnpm recursive install",
     "tsc": "tsc -p ./tsconfig.test.json"
   },
   "config": {
@@ -104,10 +96,10 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn; fi",
-      "post-merge": "yarn",
-      "post-rewrite": "yarn",
-      "pre-commit": "yarn tsc && lint-staged "
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarnhook; fi",
+      "post-merge": "yarnhook",
+      "post-rewrite": "yarnhook",
+      "pre-commit": "pnpm run tsc && lint-staged"
     }
   },
   "jest": {
@@ -117,7 +109,7 @@
   },
   "lint-staged": {
     "*.{ts,js,json,md}": [
-      "yarn lint"
+      "pnpm run lint"
     ],
     "*.{ts}": [
       "jest --bail --findRelatedTests"
