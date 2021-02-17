@@ -41,7 +41,7 @@
     "lint": "eslint . --ext '.ts' --fix",
     "lint:ci": "eslint . --ext '.ts'",
     "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000 --detectOpenHandles",
-    "deploy": "pnpm run build && pnpm -r publish",
+    "deploy": "pnpm run build && pnpm -r publish --access public",
     "preinstall": "npx only-allow pnpm",
     "tsc": "tsc -p ./tsconfig.test.json"
   },
