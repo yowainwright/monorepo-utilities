@@ -27,7 +27,6 @@
     "eslint": "^7.17.0",
     "husky": "^4.3.5",
     "jest": "^26.6.3",
-    "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
@@ -38,17 +37,12 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "build": "pnpm run clean:dist && pnpm run build:dist",
-    "build:dist": "lerna run build",
-    "clean": "lerna clean",
-    "clean:dist": "lerna run clean",
+    "build": "pnpm -r clean && pnpm -r build",
     "lint": "eslint . --ext '.ts' --fix",
     "lint:ci": "eslint . --ext '.ts'",
-    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000",
-    "deploy": "pnpm run build && lerna publish from-package --ignore-scripts --yes",
-    "deploy:all": "pnpm run build && lerna publish --ignore-scripts",
+    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000 --detectOpenHandles",
+    "deploy": "pnpm run build && pnpm -r publish",
     "preinstall": "npx only-allow pnpm",
-    "refresh": "lerna clean && rm -rf node_modules && pnpm recursive install",
     "tsc": "tsc -p ./tsconfig.test.json"
   },
   "config": {
