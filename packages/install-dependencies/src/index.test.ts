@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { exec } from 'child_process'
-// import { installDependencies } from './index'
+import { installDependencies } from './install-dependencies'
 
 const pathToInstallDependencies = './packages/install-dependencies/'
 const runInstallDependencies = `ts-node ${pathToInstallDependencies}src/index.ts run`
@@ -18,15 +18,30 @@ const standardTestDirectory = 'standard/'
 
 const cleanUpTestDirectory = () => exec(`rm -rf ${testDirectory}`)
 
-describe('install-dependencies', () => {
-  it('installed dependencies', async (done) => {
-    const config = `${configFixtureDirectory}${standardTestPackageJson}`
-    const dest = `${testDirectory}${standardTestDirectory}`
-    const script = `${runInstallDependencies} ${config} ${dest}`
-    await exec(script, () => {
-      const isTestFolderEmpty = fs.readdirSync(dest)
-      expect(isTestFolderEmpty.length).toEqual(2)
-      cleanUpTestDirectory()
+describe('@monorepo-utilities', () => {
+  describe('install-dependencies', () => {
+    it('CLI installs dependencies', async (done) => {
+      const config = `${configFixtureDirectory}${standardTestPackageJson}`
+      const dest = `${testDirectory}${standardTestDirectory}`
+      const script = `${runInstallDependencies} ${config} ${dest}`
+      await exec(script, () => {
+        const isTestFolderEmpty = fs.readdirSync(dest)
+        expect(isTestFolderEmpty.length).toEqual(2)
+        cleanUpTestDirectory()
+        done()
+      })
+    })
+
+    it('functionally installs dependencies', async (done) => {
+      const config = `${configFixtureDirectory}${standardTestPackageJson}`
+      const dest = `${testDirectory}${standardTestDirectory}`
+      const result = await installDependencies({ config, dest })
+      expect(result).toEqual({
+        config: './packages/install-dependencies/__fixtures__/test.package.json',
+        deependenciesInstalled: ['ramda@0.27.1', 'typescript@4.1.3', 'ink@^3.0.8'],
+        dest: './packages/install-dependencies/tests/standard/',
+      })
+      exec(`rm -rf ${testDirectory}`)
       done()
     })
   })

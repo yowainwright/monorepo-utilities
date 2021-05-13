@@ -4,7 +4,7 @@ import path from 'path'
 
 /**
  * installDependencies
- * @description the function that installs dependencies
+ * @description a function that installs dependencies
  * --------------------------------
  * @summary function
  * This function works on it's own to install dependencies asynchonously
@@ -42,7 +42,7 @@ export async function installDependencies({
     if (process) process.exit(1)
   }
 
-  const configPath = path.resolve(process.cwd(), config)
+  const configPath = process ? path.resolve(process.cwd(), config) : config
   const configJson = fs.existsSync(configPath) ? fs.readFileSync(configPath).toString() : ''
   const jsonContent = JSON.parse(configJson)
   if (!jsonContent || typeof jsonContent !== 'object') {

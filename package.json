@@ -25,7 +25,7 @@
     "@types/sade": "^1.7.2",
     "commitizen": "^4.2.2",
     "eslint": "^7.17.0",
-    "husky": "^4.3.5",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
@@ -43,7 +43,8 @@
     "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000 --detectOpenHandles",
     "deploy": "pnpm run build && pnpm -r publish --filter=!./packages/list-packages-by-directory/__fixtures__/ --access public",
     "preinstall": "npx only-allow pnpm",
-    "tsc": "tsc -p ./tsconfig.test.json"
+    "tsc": "tsc -p ./tsconfig.test.json",
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
