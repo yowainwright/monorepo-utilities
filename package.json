@@ -40,7 +40,7 @@
     "build": "pnpm -r clean && pnpm -r build",
     "lint": "eslint . --ext '.ts' --fix",
     "lint:ci": "eslint . --ext '.ts'",
-    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000 --detectOpenHandles",
+    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=20000 --detectOpenHandles",
     "deploy": "pnpm run build && pnpm -r publish --filter=!./packages/list-packages-by-directory/__fixtures__/ --access public",
     "preinstall": "npx only-allow pnpm",
     "tsc": "tsc -p ./tsconfig.test.json",

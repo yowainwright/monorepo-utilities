@@ -1,10 +1,6 @@
 import { exec } from 'child_process'
 // import { installDependencies } from './index'
 
-/**
- * @todo write more tests!
- */
-
 describe('list-packages-by-directory', () => {
   const pathToListPackagesByDirectory = './packages/list-packages-by-directory/'
   const runListPackagesByDirectory = `ts-node ${pathToListPackagesByDirectory}src/index.ts in`

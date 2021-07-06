@@ -11,18 +11,16 @@ Monorepo utilities for better monorepo results.
 
 ## Packages
 
-Check out this projects Monorepo Utilities packages below!
-
-| Package                                                                                | Utility                                                        |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies)             | Installs exact packages to a specified path with control!      |
-| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) | Writes a list in string format of each package to a directory. |
+| Package                                                                           | Version  |Utility                                                        |
+| -------------------------------------------------------------------------------------- | --- |-------------------------------------------------------------- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies)             | n/a | Installs exact packages to a specified path with control!      |
+| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) | n/a | Writes a list in string format of each package to a directory. |
 
 ---
 
 ## Glossary
 
-Sectioned below, are descriptions and usages of each implemented Monorepo Utility.
+Descriptions and usages of each implemented Monorepo Utility.
 
 ---
 
