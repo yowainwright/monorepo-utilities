@@ -19,7 +19,7 @@
     "@heartly/prettier-config": "^0.0.1",
     "@types/eslint": "^7.2.6",
     "@types/fs-extra": "^9.0.6",
-    "@types/jest": "^26.0.4",
+    "@types/jest": "^27.0.1",
     "@types/node": "^16.0.0",
     "@types/react": "^17.0.0",
     "@types/sade": "^1.7.2",
