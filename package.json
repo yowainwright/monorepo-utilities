@@ -14,7 +14,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-lerna-scopes": "^17.0.0",
-    "@commitlint/prompt": "^16.0.0",
+    "@commitlint/prompt": "^17.0.0",
     "@heartly/eslint-config-typescript": "1.0.4",
     "@heartly/prettier-config": "^0.0.1",
     "@types/eslint": "^8.2.1",
