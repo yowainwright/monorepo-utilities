@@ -1,7 +1,6 @@
 # Monorepo Utilities 🧱
 
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 **Utilities for monorepo development.**
 
@@ -80,7 +79,6 @@ const directoryList = listPackagesByDirectory({ <dir> })
 
 ## Thanks
 
-- Thanks [Luke Edwards](https://github.com/lukeed) for [Sade](https://github.com/lukeed/sade).
 - Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
 - Thanks [Will Jacobson](https://github.com/willzjacobson) for listening to my concepts before implementing initial takes on these utilities.
 
