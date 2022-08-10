@@ -43,7 +43,8 @@ export async function installDependencies({
   }
 
   const configPath = process ? path.resolve(process.cwd(), config) : config
-  const configJson = fs.existsSync(configPath) ? fs.readFileSync(configPath).toString() : ''
+  const configJson = fs.existsSync(configPath) ? fs.readFileSync(configPath).toString() : '{}';
+  console.log({ configJson});
   const jsonContent = JSON.parse(configJson)
   if (!jsonContent || typeof jsonContent !== 'object') {
     if (debug)

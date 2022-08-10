@@ -106,4 +106,5 @@ dist
 .DT_Store
 
 .DS_Store
-
+.dccache
+.turbo

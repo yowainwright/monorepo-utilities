@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-utilities/list-packages-by-directory",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "description": "List packages by directory ፨",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,22 +10,23 @@
   "bin": {
     "list-packages-by-directory": "./dist/index.js"
   },
-  "dependencies": {
-    "sade": "^1.7.4",
-    "tiny-glob": "^0.2.8"
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "eslint src/**/*.ts --config ../../.eslintrc",
+    "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
+    "test": "echo 'write tests!'",
+    "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "node_modules",
-    "list",
-    "glob",
-    "environment",
-    "installing",
-    "lerna",
-    "monorepos",
-    "package-management",
-    "yarn",
-    "yarn-workspaces"
-  ],
+  "dependencies": {
+    "commander": "^9.4.0",
+    "fast-glob": "^3.2.11",
+    "sade": "^1.8.1",
+    "tiny-glob": "^0.2.9"
+  },
+  "devDependencies": {
+    "@types/sade": "^1.7.4"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -36,27 +37,16 @@
     "type": "git",
     "url": "git+https://github.com/yowainwright/monorepo-utilities.git"
   },
-  "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist"
-  },
   "bugs": {
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"
   },
-  "jest": {
-    "name": "@monorepo-utilities/list-packages-by-directory",
-    "projects": [
-      "<rootDir>/packages/*"
-    ],
-    "resetMocks": true,
-    "rootDir": "./",
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.(ts)$": "ts-jest"
-    }
-  },
-  "gitHead": "dc084956b00f09ec07822a6973561e17a4395d0b"
+  "keywords": [
+    "node_modules",
+    "list",
+    "glob",
+    "environment",
+    "installing",
+    "monorepos",
+    "package-management"
+  ]
 }

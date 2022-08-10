@@ -1,25 +1,54 @@
-name: Pull Request Manager
+name: ci
 
 on:
+  push:
+    branches: ['master']
   pull_request:
-    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build and Test
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
     env:
-      CI: true
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     strategy:
       matrix:
-        node-version: [14]
+        os: [ubuntu-latest]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install pnpm -g
-      - run: pnpm install --frozen-lockfile=false
-      - run: pnpm run build
-      - run: pnpm run lint
-      - run: pnpm run test
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - uses: pnpm/action-setup@v2.2.2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 7
+        run_install: false
+
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      run: |
+        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+    - uses: actions/cache@v3
+      name: Setup pnpm cache
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+    - run: pnpm install -r
+    - run: pnpm build
+    - run: pnpm lint
+    # - run: pnpm test
+      env:
+        CI: true
