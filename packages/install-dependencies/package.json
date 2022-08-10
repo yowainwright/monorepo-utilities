@@ -8,10 +8,25 @@
     "dist/*"
   ],
   "bin": {
-    "install-dependencies": "./dist/index.js"
+    "install-dependencies": "./dist/index.js",
+    "install-deps": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "eslint src/**/*.ts --config ../../.eslintrc",
+    "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "sade": "^1.7.4"
+    "commander": "^9.4.0",
+    "fast-glob": "^3.2.11",
+    "sade": "^1.8.1",
+    "tiny-glob": "^0.2.9"
+  },
+  "devDependencies": {
+    "@types/sade": "^1.7.4"
   },
   "keywords": [
     "node_modules",
@@ -23,9 +38,7 @@
     "node-apps",
     "node-services",
     "services",
-    "monorepos",
-    "yarn",
-    "yarn-workspaces"
+    "monorepos"
   ],
   "publishConfig": {
     "access": "public"
@@ -36,10 +49,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yowainwright/monorepo-utilities.git"
-  },
-  "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist"
   },
   "bugs": {
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"
@@ -58,6 +67,5 @@
     "transform": {
       "^.+\\.(ts)$": "ts-jest"
     }
-  },
-  "gitHead": "dc084956b00f09ec07822a6973561e17a4395d0b"
+  }
 }

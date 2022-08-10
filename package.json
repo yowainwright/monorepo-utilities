@@ -3,49 +3,42 @@
   "version": "0.0.1",
   "description": "Utilities for monorepo development",
   "main": "README.md",
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-lerna-scopes": "^17.0.2",
+    "@commitlint/prompt": "^17.0.3",
+    "@types/eslint": "^8.4.5",
+    "@types/node": "^18.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "commitizen": "^4.2.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "tslib": "^2.4.0",
+    "tsutils": "^3.21.0",
+    "turbo": "^1.4.3",
+    "typescript": "^4.7.4",
+    "vitest": "^0.21.1"
+  },
   "repository": "git@github.com:yowainwright/monorepo-utilities.git",
   "author": "yowainwright <yowainwright@gmail.com>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "sade": "^1.7.4",
-    "tiny-glob": "^0.2.8"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-lerna-scopes": "^17.0.0",
-    "@commitlint/prompt": "^17.0.0",
-    "@heartly/eslint-config-typescript": "1.0.4",
-    "@heartly/prettier-config": "^0.0.1",
-    "@types/eslint": "^8.2.1",
-    "@types/fs-extra": "^9.0.6",
-    "@types/jest": "^28.1.1",
-    "@types/node": "^18.0.1",
-    "@types/react": "^18.0.1",
-    "@types/sade": "^1.7.2",
-    "commitizen": "^4.2.2",
-    "eslint": "^7.17.0",
-    "husky": "^6.0.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^13.0.0",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.1",
-    "ts-node": "^10.0.0",
-    "tsconfig-paths": "^4.0.0",
-    "tslib": "^2.0.3",
-    "typescript": "^4.1.2"
-  },
-  "scripts": {
-    "build": "pnpm -r clean && pnpm -r build",
-    "lint": "eslint . --ext '.ts' --fix",
-    "lint:ci": "eslint . --ext '.ts'",
-    "test": "jest --maxWorkers=4 --collectCoverage=true --testTimeout=15000 --detectOpenHandles",
-    "deploy": "pnpm run build && pnpm -r publish --filter=!./packages/list-packages-by-directory/__fixtures__/ --access public",
-    "preinstall": "npx only-allow pnpm",
-    "tsc": "tsc -p ./tsconfig.test.json",
-    "prepare": "husky install"
-  },
   "config": {
     "commitizen": {
       "path": "node_modules/@commitlint/prompt"
@@ -87,30 +80,8 @@
       ]
     }
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then pnpm install; fi",
-      "post-merge": "pnpm install",
-      "post-rewrite": "pnpm install",
-      "pre-commit": "pnpm run tsc && lint-staged"
-    }
-  },
-  "jest": {
-    "projects": [
-      "<rootDir>/packages/*"
-    ]
-  },
-  "lint-staged": {
-    "*.{ts,js,json,md}": [
-      "pnpm run lint"
-    ],
-    "*.{ts}": [
-      "jest --bail --findRelatedTests"
-    ]
-  },
-  "prettier": "@heartly/eslint-config-typescript/dist/prettier",
   "engines": {
-    "pnpm": ">=5"
+    "pnpm": ">=7",
+    "node": ">=16.0.0"
   }
 }
