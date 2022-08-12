@@ -18,41 +18,11 @@ pnpm install @monorepo-utilities/install-dependencies
 As a CLI
 
 ```sh
-install-dependencies run <config> <dest>
 # => installs packages (node_modules) from a config (like package.json) to a specified path
-```
-
-As a function
-
-```typescript
-import { installDependencies } from '@monorepo-utilities/install-dependencies'
-
-const dependencies = installDependencies({ <config>, <dest> })
-// => installs dependencies from a package.json (<config>) to the specified destination (<dest>)
-// => returns an object with installedDependencies, config, dest
 ```
 
 ## CLI API
 
-```txt
-  Usage
-    $ install-dependencies <command> [options]
-
-  Available Commands
-    run    installs a package.json's dependencies to a specificied path
-
-  For more info, run any command with the `--help` flag
-    $ install-dependencies run --help
-
-  Options
-    -v, --version    Displays current version
-    -h, --help       Displays this message
-```
-
-## Arguments
-
-- **`<config>`**: a string path to a config file (a `package.json` file)
-- **`<path>`**: a string path to the desired destination of the installed dependencies
 
 ## Added Specificity Options
 
@@ -61,10 +31,10 @@ Within a config (`package.json`) an `installDepedencies` object can optionally b
 ```json
 "installDependencies": {
     "include": {
-      "react": "17.0.1",
-      "@babel/core": "7.12.10",
-      "typescript": "4.1.2",
-      "@foo/bar": "@latest"
+      "react@17.0.1",
+      "@babel/core@7.12.10",
+      "typescript@4.1.2",
+      "@foo/bar
     },
     "ignore": [
       "ramda"
@@ -74,20 +44,18 @@ Within a config (`package.json`) an `installDepedencies` object can optionally b
 
 ## Why
 
-When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [lerna](https://github.com/lerna/lerna), there are drawbacks in the Developer Experience (DX) versus Deployment Experience of module installation.
+When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/), there are drawbacks in the Developer Experience (DX) versus Deployment Experience of module installation.
 
-By manually providing a way to specifically install packages (node_modules) to a specified location, developors can enjoy [module hoisting](https://classic.yarnpkg.com/en/docs/workspaces/#toc-limitations-caveats) and [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and **not** have to worry about what's in `node_modules` folders when deploying un-bundled node apps.
+By manually providing a way to install packages (node_modules) to a specified location, developers can enjoy [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and **not** have to worry about what's in `node_modules` folders when doing things like deploying un-bundled node apps.
 
 ## Benefits
 
 Listed below are a few benefits to using **install-dependencies**.
 
 - Developer Experience (DX)
-- Build deploys sizes
-- Build deploys build times
-- Deployment package security
-- Deployment package debugging
-- Deployment package versions
+- Build size
+- Build time
+- Security
 
 ## Use Case
 
@@ -158,7 +126,6 @@ Here are a few features that will be added momentarily:
 
 ## Thanks
 
-- Thanks [Luke Edwards](https://github.com/lukeed) for [Sade](https://github.com/lukeed/sade).
 - Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
 
 ## Monorepo Utilities 🧱

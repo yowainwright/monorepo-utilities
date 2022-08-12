@@ -2,48 +2,41 @@
   "name": "@monorepo-utilities/install-dependencies",
   "version": "0.1.8",
   "description": "Builds node modules to a spectified path 📦",
-  "main": "dist/index.js",
+  "type": "module",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
-    "dist/*"
+    "dist"
   ],
   "bin": {
     "install-dependencies": "./dist/index.js",
-    "install-deps": "./dist/index.js"
+    "ideps": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
     "clean": "rimraf dist",
     "lint": "eslint src/**/*.ts --config ../../.eslintrc",
     "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "version": "shx sed -i \"s/VERSION/$npm_package_version/\" dist/program.js"
   },
   "dependencies": {
     "commander": "^9.4.0",
+    "cosmiconfig": "^7.0.1",
     "fast-glob": "^3.2.11",
-    "sade": "^1.8.1",
-    "tiny-glob": "^0.2.9"
+    "lilconfig": "^2.0.6"
   },
-  "devDependencies": {
-    "@types/sade": "^1.7.4"
-  },
-  "keywords": [
-    "node_modules",
-    "build",
-    "environment",
-    "dist",
-    "installing",
-    "package-management",
-    "node-apps",
-    "node-services",
-    "services",
-    "monorepos"
-  ],
   "publishConfig": {
     "access": "public"
   },
-  "author": "yowainwright <yowainwright@gmail.com>",
+  "author": "yowainwright <yowainwright@gmail.com> (https://jeffry.in)",
   "homepage": "https://github.com/yowainwright/monorepo-utilities#readme",
   "license": "MIT",
   "repository": {
@@ -53,19 +46,19 @@
   "bugs": {
     "url": "https://github.com/yowainwright/monorepo-utilities/issues"
   },
-  "jest": {
-    "name": "@monorepo-utilities/install-dependencies",
-    "projects": [
-      "<rootDir>/packages/*"
-    ],
-    "resetMocks": true,
-    "rootDir": "./",
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.(ts)$": "ts-jest"
-    }
+  "keywords": [
+    "build",
+    "dependency-management",
+    "environment",
+    "installing",
+    "monorepos",
+    "multi-repos",
+    "node-apps",
+    "node-services",
+    "package-management",
+    "services"
+  ],
+  "devDependencies": {
+    "fs-extra": "^10.1.0"
   }
 }

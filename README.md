@@ -12,10 +12,10 @@ Monorepo utilities for better monorepo results.
 
 Check out this projects Monorepo Utilities packages below!
 
-| Package                                                                                | Utility                                                        |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies)             | Installs exact packages to a specified path with control!      |
-| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) | Writes a list in string format of each package to a directory. |
+| Package | version | Utility |
+| :--- | :---: | :--- |
+| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) |  0.0.0 | Installs exact packages to a specified path with control! |
+| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) |  0.0.0 | Writes a list in string format of each package to a directory. |
 
 ---
 
@@ -37,6 +37,7 @@ CLI Program
 
 ```sh
 install-dependencies run <config> <dest>
+# shorthand: idep <config> <dest>
 # => installs packages (node_modules) from a config (like package.json) to a specified path
 ```
 
@@ -64,6 +65,7 @@ CLI Program
 
 ```sh
 list-packages-by-directory from <dir>
+ldeps
 # => '{@foo/bar,@foo/biz,@foo/baz}'
 ```
 
