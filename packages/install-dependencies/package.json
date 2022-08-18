@@ -21,6 +21,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "clean": "rimraf dist",
+    "cmd:quick-test": "ts-node src/program.ts -f __fixtures__/test.all.package.json --dest './quick-test' --debug",
     "lint": "eslint src/**/*.ts --config ../../.eslintrc",
     "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
     "test": "vitest run",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "commander": "^9.4.0",
+    "compare-versions": "^4.1.3",
     "cosmiconfig": "^7.0.1",
     "fast-glob": "^3.2.11",
     "lilconfig": "^2.0.6"
