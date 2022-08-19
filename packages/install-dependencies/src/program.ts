@@ -26,11 +26,13 @@ export async function action(options: Options = {}): Promise<void> {
 program
   .version(version)
   .option("-c, --config <config>", "config path")
-  .option("-d, --dest <string>", "dest path")
   .option("--debug", "enables debug mode")
+  .option("-d, --dest <string>", "dest path")
   .option('-f, --file <file>', 'path to package.json file')
+  .option("--has-lockfile", "use lock file")
   .option("-t, --isTestingCLI", "enables CLI testing, no scripts are run")
   .option('--isTesting', "enables testing, no scripts are run")
+  .option("-r, --runner <runner>", "npm, pnpm, or yarn")
   .action(action)
   .parse(process.argv);
 

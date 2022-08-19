@@ -22,9 +22,15 @@ export function resolveJSON(
   }
 }
 
-export function depsToInstall({ dependencies, ignore, include }) {
-  const deps = Object.keys(dependencies).filter(dep => !ignore.includes(dep)).map(name => ({ name, version: dependencies[name] }));
-  const mergedDeps = Object.keys(include).map(name => ({ name, version: include[name] })).concat(deps);
+export function depsToInstall({ dependencies = {}, ignore = [], include = {} } = {}) {
+  const dependencyNames = Object.keys(dependencies);
+  const includeNames = Object.keys(include);
+  const hasDependencies = dependencyNames.length > 0;
+  const hasInclude = includeNames.length > 0;
+  if (!hasDependencies && !hasInclude) return [];
+  const deps = hasDependencies ? dependencyNames.filter(dep => !ignore.includes(dep)).map(name => ({ name, version: dependencies[name] })) : [];
+  const includeDeps = hasInclude ? includeNames.map(name => ({ name, version: include[name] })) : [];
+  const mergedDeps = includeDeps.concat(deps);
   return mergedDeps.filter((dep) => {
     const matches = mergedDeps.filter(item => item.name === dep.name)
     if (matches.length > 1) {
@@ -42,6 +48,8 @@ export async function installDependencies({
   debug = false,
   isTesting = false,
   exec = execPromise,
+  hasLockfile = false,
+  runner = 'npm',
 }: InstallDependenciesOptions) {
   const json = resolve(file);
   const data = resolveJSON(json, debug);
@@ -50,8 +58,12 @@ export async function installDependencies({
   const deps = depsToInstall({ dependencies, ignore, include });
   const depsString = deps.map(({ name, version }) => `${name}@${version}`).join(' ');
   if (debug) console.log('install-dependencies:debugging:', { deps, config, depsString });
-  if (isTesting) return;
-  await exec(`npm install ${dest ? `--prefix ${dest} ` : ' '}${depsString} -S`);
+  if (isTesting || deps.length < 1) return;
+  /**
+   * @todo provide support for yarn/pnpm installs
+   * @note yarn/pnpm installs won't respect their configured workspace
+   */
+  await exec(`${runner} install ${dest ? `--prefix ${dest} ` : ' '}${depsString} -S --package-lock=${hasLockfile}`);
 }
 
 export default installDependencies;
