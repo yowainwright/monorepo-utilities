@@ -1,6 +1,6 @@
 {
   "name": "@monorepo-utilities/install-dependencies",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Builds node modules to a spectified path 📦",
   "type": "module",
   "module": "dist/index.js",
@@ -15,8 +15,8 @@
     "dist"
   ],
   "bin": {
-    "install-dependencies": "./dist/index.js",
-    "ideps": "./dist/index.js"
+    "install-dependencies": "./dist/index.cjs",
+    "ideps": "./dist/index.cjs"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",

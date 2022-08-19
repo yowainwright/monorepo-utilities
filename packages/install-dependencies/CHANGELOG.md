@@ -1,5 +1,11 @@
 # @monorepo-utilities/install-dependencies
 
+## 1.0.1
+
+### Patch Changes
+
+- Fixes file reference for bin scripts
+
 ## 1.0.0
 
 ### Major Changes
