@@ -8,6 +8,7 @@ importers:
       '@commitlint/cli': ^17.0.3
       '@commitlint/config-lerna-scopes': ^17.0.2
       '@commitlint/prompt': ^17.0.3
+      '@monorepo-utilities/install-dependencies': workspace:^1.0.1
       '@types/eslint': ^8.4.5
       '@types/node': ^18.7.1
       '@typescript-eslint/eslint-plugin': ^5.33.0
@@ -33,6 +34,7 @@ importers:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-lerna-scopes': 17.0.2
       '@commitlint/prompt': 17.0.3
+      '@monorepo-utilities/install-dependencies': link:packages/install-dependencies
       '@types/eslint': 8.4.5
       '@types/node': 18.7.1
       '@typescript-eslint/eslint-plugin': 5.33.0_njno5y7ry2l2lcmiu4tywxkwnq

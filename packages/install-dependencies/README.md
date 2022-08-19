@@ -13,120 +13,63 @@ Installs dependencies from a config to a destination with control!
 pnpm install @monorepo-utilities/install-dependencies
 ```
 
+---
+
 ## Usage
 
 As a CLI
 
 ```sh
+install-deps
 # => installs packages (node_modules) from a config (like package.json) to a specified path
-```
-
-## CLI API
-
-
-## Added Specificity Options
-
-Within a config (`package.json`) an `installDepedencies` object can optionally be added. It can optionally include an `ignore` array or an `include` object.
-
-```ts
-"installDependencies": {
-    "include": {
-      "react@17.0.1",
-      "@babel/core@7.12.10",
-      "typescript@4.1.2",
-      "@foo/bar
-    },
-    "ignore": [
-      "ramda"
-    ]
-  }
-```
-
-## Why
-
-When using various project managers for monorepos, like [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/), there are drawbacks in the Developer Experience (DX) versus Deployment Experience of module installation.
-
-By manually providing a way to install packages (node_modules) to a specified location, developers can enjoy [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and **not** have to worry about what's in `node_modules` folders when doing things like deploying un-bundled node apps.
-
-## Benefits
-
-Listed below are a few benefits to using **install-dependencies**.
-
-- Developer Experience (DX)
-- Build size
-- Build time
-- Security
-
-## Use Case
-
-Consider the following paragraphs to decide whether **install-dependencies** can assist your project!
-
-### Deployment Node App Woos
-
-Deploying a node app with it's corresponding `node_modules` produces a large build artifact! Now imagine a monorepo which has multiple node apps and uses yarn workspaces. [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) greatly helps with developer experience by hoisting `node_modules` making package install times faster and linking local packages automatically.
-
-However, when building a build artifact for deployment, those same gains from [Yarn Workspace Hoisting](https://classic.yarnpkg.com/en/docs/workspaces/) will produce a **large** `node_module` directory! On top of that, an extra build step may be required for including [local package dependencies](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) (`"@foo/bar": "file:../packages/bar/dist"`).
-
-The results of the scenario described above are larger-than-needed build artifacts and long build times. Furthermore, dependencies specified in a node app's `package.json`'s dependencies may be a different version based on hoisting.
-
-**install-dependencies** to the rescue! By using **install-dependencies**, we can specify exactly what dependencies must be installed!
-
-### How install-dependencies helps
-
-Here's a short list of how **install-dependencies** helps!
-
-- **install-dependencies** installs all dependencies specific to a config  (a `package.json`)'s dependencies.
-- **install-dependencies** will optionally ignore dependencies specified in a config (a `package.json`)'s `installDependencies.ignore` array.
-- **install-dependencies** will optionally override dependencies or add dependencies specified in a config (a `package.json`)'s `installDependencies.include` object.
-
-Here's an example config (`package.json`) with the `installDependencies` object included:
-
-```json
-"dependencies": {
-  "@foo/bar": "file:..packages/bar/dist",
-    "ramda": "0.27.1",
-    "typescript": "4.1.3",
-    "ink": "^3.0.8",
-  },
-  "installDependencies": {
-    "include": {
-      "react": "17.0.1",
-      "@babel/core": "7.12.10",
-      "typescript": "4.1.2",
-      "@foo/bar": "@latest"
-    },
-    "ignore": [
-      "ramda"
-    ]
-  }
-```
-
-The resulting `node_modules` directory will include:
-
-```txt
-// note: NO ramda!
-@babel/core@7.12.10
-@foo/bar@0.1.2 // note: example which equals the latest version of @foo/bar
-ink@^3.0.8
-react@17.0.1
-typescript@4.1.2 // note: NOT 4.1.3
 ```
 
 ---
 
+## CLI API
+
+```sh
+Usage: install-deps [options]
+
+Options:
+  -V, --version          output the version number
+  -c, --config <config>  config path
+  --debug                enables debug mode
+  -d, --dest <string>    dest path
+  -f, --file <file>      path to package.json file
+  --has-lockfile         use lock file
+  --isTesting            enables testing, no scripts are run
+  -r, --runner <runner>  npm, pnpm, or yarn
+  -h, --help             display help for command
+```
+
+---
+
+## Added Specificity Options
+
+Within a config (`package.json`) an `installDependencies`, `ideps` object can optionally be added with an `ignore` array or an `include` object.
+
+```ts
+"installDependencies": {
+  "include": {
+    "react": "17.0.1",
+    "@babel/core": "7.12.10",
+    "typescript": "4.1.2"
+  },
+  "ignore": [
+    "ramda"
+  ]
+}
+```
+
+## Why
+
+When working in monorepo workspace, like [pnpm workspaces](https://pnpm.io/workspaces),
+installing exact node_modules within a package can be difficult.
+
+With `install-dependencies`, developers can enjoy [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and exact `node_module` installing for things like deploying a node app.
+
 ## Roadmap
-
-Here are a few features that will be added momentarily:
-
-- a tested config that is not a `package.json`
-- the option to add `devDependencies`
-- the option to add `peerDependencies`
-- potentially more flags to improve the build time/size
-- a white goat with one horn that is mistaken for a unicorn constantly 🦄
-
-## Thanks
-
-- Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
 
 ## Monorepo Utilities 🧱
 
