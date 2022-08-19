@@ -10,14 +10,7 @@
   "bin": {
     "list-packages-by-directory": "./dist/index.js"
   },
-  "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "lint": "eslint src/**/*.ts --config ../../.eslintrc",
-    "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
-    "test": "echo 'write tests!'",
-    "typecheck": "tsc --noEmit"
-  },
+  "scripts": {},
   "dependencies": {
     "commander": "^9.4.0",
     "fast-glob": "^3.2.11",

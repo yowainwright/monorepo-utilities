@@ -3,5 +3,13 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "moduleTypes": {
+      "package.json": "cjs",
+      "src/*": "cjs"
+    }
+  }
 }
