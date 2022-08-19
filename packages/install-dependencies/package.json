@@ -15,8 +15,8 @@
     "dist"
   ],
   "bin": {
-    "install-dependencies": "./dist/index.js",
-    "ideps": "./dist/index.js"
+    "install-dependencies": "./dist/index.cjs",
+    "ideps": "./dist/index.cjs"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
