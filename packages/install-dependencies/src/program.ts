@@ -8,7 +8,7 @@ const version = "VERSION";
 
 const explorer = cosmiconfigSync("ideps");
 
-export async function action(options: Options = {}): void {
+export async function action(options: Options = {}): Promise<void> {
   const result = options?.config
     ? explorer.load(options.config)
     : explorer.search();

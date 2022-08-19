@@ -29,7 +29,7 @@ export function depsToInstall({ dependencies, ignore, include }) {
     const matches = mergedDeps.filter(item => item.name === dep.name)
     if (matches.length > 1) {
       const latestVersion = mergedDeps.filter(item => item.name === dep.name).map(({ version }) => version).sort(compare).reverse()[0];
-      if (dep.version !== latestVersion) return;
+      if (dep.version !== latestVersion) return null;
     }
     return dep;
   });
