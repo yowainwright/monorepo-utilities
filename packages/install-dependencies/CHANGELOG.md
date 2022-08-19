@@ -1,5 +1,11 @@
 # @monorepo-utilities/install-dependencies
 
+## 1.0.2
+
+### Patch Changes
+
+- 38401f5: Adds more configuration options
+
 ## 1.0.1
 
 ### Patch Changes
