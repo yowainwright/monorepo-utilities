@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: ci
     timeout-minutes: 15
     runs-on: ${{ matrix.os }}
     # To use Remote Caching, uncomment the next lines and follow the steps below.
