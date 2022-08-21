@@ -1,6 +1,8 @@
 # Monorepo Utilities 🧱
 
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/monorepo-utilities/monorepo-utilities/ci)
+[![GitHub link](https://badgen.net/badge/icon/github?icon=github&label&color=black)](https://github.com/monorepo-utilities/monorepo-utilities)
 
 **Utilities for monorepo development.**
 
@@ -14,8 +16,7 @@ Check out this projects Monorepo Utilities packages below!
 
 | Package | version | Utility |
 | :--- | :---: | :--- |
-| [@monorepo-utilities/install-dependencies](/packages/install-dependencies) |  0.0.0 | Installs exact packages to a specified path with control! |
-| [@monorepo-utilities/list-packages-by-directory](/packages/list-packages-by-directory) |  0.0.0 | Writes a list in string format of each package to a directory. |
+| **[@monorepo-utilities/install-dependencies](/packages/install-dependencies)** |  ![npm](https://img.shields.io/npm/v/@monorepo-utilities/install-dependencies) | Installs exact packages to a specified path with control! |
 
 ---
 
@@ -36,24 +37,14 @@ This utility can greatly assist in monorepos developer experience (DX). Specific
 CLI Program
 
 ```sh
-install-dependencies run <config> <dest>
-# shorthand: idep <config> <dest>
-# => installs packages (node_modules) from a config (like package.json) to a specified path
-```
-
-Function
-
-```typescript
-import { installDependencies } from '@monorepo-utilities/install-dependencies'
-
-const dependencies = installDependencies({ <config>, <dest> })
-// => installs dependencies from a package.json (<config>) to the specified destination (<dest>)
-// => returns an object with installedDependencies, config, dest
+install-dependencies
+# shorthand: ideps
+# => installs packages (node_modules) from a packagea.json file or other config file to a specified path
 ```
 
 ---
 
-### List-packages-by-directory ፨
+<!-- ### List-packages-by-directory ፨
 
 **List-packages-by-directory** is a small function and CLI program which returns a list of each package in a directory by name. [Read more](/packages/list-packages-by-directory#why)
 
@@ -77,7 +68,7 @@ import { listPackagesByDirectory } from '@monorepo-utilities/list-packages-by-di
 const directoryList = listPackagesByDirectory({ <dir> })
 // => writes a list in string format from a directory
 // => returns an array of strings containing each
-```
+``` -->
 
 ## Thanks
 
