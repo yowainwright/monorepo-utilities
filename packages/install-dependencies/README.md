@@ -3,7 +3,11 @@
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 [![npm version](https://badge.fury.io/js/%40monorepo-utilities%2Finstall-dependencies.svg)](https://www.npmjs.com/package/@monorepo-utilities/install-dependencies)
 
-Installs dependencies from a config to a destination with control!
+Install Dependencies is CLI which helps you install monorepo package dependencies with control!
+
+## Why tho?
+
+When working in monorepo workspace, like [pnpm workspaces](https://pnpm.io/workspaces), installing exact node_modules within a package can be difficult. With `install-dependencies`, developers can enjoy [local package referencing](https://pnpm.io/workspaces#workspace-protocol-workspace) and **exact** `node_module` installs!
 
 ---
 
@@ -17,16 +21,9 @@ pnpm install @monorepo-utilities/install-dependencies
 
 ## Usage
 
-As a CLI
+To use install-dependencies, simply run `install-deps`.
 
-```sh
-install-deps
-# => installs packages (node_modules) from a config (like package.json) to a specified path
-```
-
----
-
-## CLI API
+Or, if you need more control, use the options below!
 
 ```sh
 Usage: install-deps [options]
@@ -45,9 +42,10 @@ Options:
 
 ---
 
-## Added Specificity Options
+### Optional Specificity
 
-Within a config (`package.json`) an `installDependencies`, `ideps` object can optionally be added with an `ignore` array or an `include` object.
+If you want even more control, within a `package.json` you can add `installDependencies` or `ideps` object.
+Now, you can optionally add packages to ignore using an `ignore` array or you can include more using `include` object!
 
 ```ts
 "installDependencies": {
@@ -62,14 +60,7 @@ Within a config (`package.json`) an `installDependencies`, `ideps` object can op
 }
 ```
 
-## Why
-
-When working in monorepo workspace, like [pnpm workspaces](https://pnpm.io/workspaces),
-installing exact node_modules within a package can be difficult.
-
-With `install-dependencies`, developers can enjoy [local package referencing](https://github.com/lerna/lerna/blob/main/utils/check-working-tree/package.json#L33) and exact `node_module` installing for things like deploying a node app.
-
-## Roadmap
+---
 
 ## Monorepo Utilities 🧱
 
