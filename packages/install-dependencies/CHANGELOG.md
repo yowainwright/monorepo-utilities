@@ -1,5 +1,15 @@
 # @monorepo-utilities/install-dependencies
 
+## 1.1.0
+
+### Minor Changes
+
+- Adds initial tests
+
+### Patch Changes
+
+- 88c827b: Updates README for readability
+
 ## 1.0.2
 
 ### Patch Changes
