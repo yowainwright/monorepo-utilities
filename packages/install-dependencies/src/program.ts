@@ -12,9 +12,8 @@ export async function action(options: Options = {}): Promise<void> {
   const result = options?.config
     ? explorer.load(options.config)
     : explorer.search();
-  const { config } = result || {};
+  const { config = {} } = result || {};
   const { config: unusedConfig, isTestingCLI, ...rest } = options;
-
   if (isTestingCLI) {
     console.info({ options, config });
     return;
@@ -33,6 +32,7 @@ program
   .option("-t, --isTestingCLI", "enables CLI testing, no scripts are run")
   .option('--isTesting', "enables testing, no scripts are run")
   .option("-r, --runner <runner>", "npm, pnpm, or yarn")
+  .option('-s, --searchPath <searchPath>', 'search path for the config')
   .action(action)
   .parse(process.argv);
 

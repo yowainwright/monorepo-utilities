@@ -17,8 +17,6 @@ When working in monorepo workspace, like [pnpm workspaces](https://pnpm.io/works
 pnpm install @monorepo-utilities/install-dependencies
 ```
 
----
-
 ## Usage
 
 To use install-dependencies, simply run `install-deps`.

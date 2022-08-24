@@ -34,7 +34,7 @@
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "shx": "^0.3.4",
-    "stdouttojson": "^0.3.6",
+    "stdouttojson": "^0.4.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.0",
     "tslib": "^2.4.0",
