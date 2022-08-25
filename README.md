@@ -30,15 +30,12 @@ Sectioned below, are descriptions and usages of each implemented Monorepo Utilit
 
 **Install-Dependencies** is a small function and CLI program assisting in installing package dependencies from a config (`package.json`) to a specified destination (in example, `/dist`). [Read more](/packages/install-dependencies#why).
 
-This utility can greatly assist in monorepos developer experience (DX). Specifically, it can assist in building deploys where installing **exact** package dependencies can benefit deployment size and time. Also, it can ensure _more_ exact package installation for build package security, build package debugging, and specified build package versions.
-
 #### Usage
 
 CLI Program
 
 ```sh
-install-dependencies
-# shorthand: ideps
+install-dependencies # or, ideps
 # => installs packages (node_modules) from a packagea.json file or other config file to a specified path
 ```
 
