@@ -31,6 +31,7 @@ program
   .option("--has-lockfile", "use lock file")
   .option("-t, --isTestingCLI", "enables CLI testing, no scripts are run")
   .option('--isTesting', "enables testing, no scripts are run")
+  .option("-p, --path <path>", "path to package.json file")
   .option("-r, --runner <runner>", "npm, pnpm, or yarn")
   .action(action)
   .parse(process.argv);

@@ -34,6 +34,7 @@ Options:
   -f, --file <file>      path to package.json file
   --has-lockfile         use lock file
   --isTesting            enables testing, no scripts are run
+  -p, --path <path>      path to package.json file
   -r, --runner <runner>  npm, pnpm, or yarn
   -h, --help             display help for command
 ```
