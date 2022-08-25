@@ -7,7 +7,7 @@ Install Dependencies is CLI which helps you install monorepo package dependencie
 
 ## Why tho?
 
-When working in monorepo workspace, like [pnpm workspaces](https://pnpm.io/workspaces), installing exact node_modules within a package can be difficult. With `install-dependencies`, developers can enjoy [local package referencing](https://pnpm.io/workspaces#workspace-protocol-workspace) and **exact** `node_module` installs!
+When working in [monorepo workspaces](https://pnpm.io/workspaces), installing exact node modules within a package can be difficult! With `install-dependencies`, developers can enjoy [local package referencing](https://pnpm.io/workspaces#workspace-protocol-workspace) and **exact** node module installs!
 
 ---
 
@@ -43,13 +43,10 @@ Options:
 
 ### Optional Specificity
 
-If you want even more control, within a `package.json`, you can add `installDependencies` or `ideps` object.
+If you want even more control, you can add `installDependencies` or `ideps` object to your  package's `package.json`.
 Now, you can optionally add packages to ignore using an `ignore` array or you can include more using `include` object!
 
-If you'd prefer this functionality without adding `installDependencies` or `ideps` to `package.json`, you can add an `ignore` array or an `include` object to a `.idepsrc` config at the root of your package.
-
 ```ts
-// within package.json
 "installDependencies": {
   "include": {
     "react": "17.0.1",
@@ -62,7 +59,7 @@ If you'd prefer this functionality without adding `installDependencies` or `idep
 }
 ```
 
-Within a `.idepsrc`
+If you'd prefer this functionality without adding an object to your `package.json`, you can add it to an `.idepsrc` config
 
 ```ts
 {
