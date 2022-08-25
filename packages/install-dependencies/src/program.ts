@@ -24,6 +24,7 @@ export async function action(options: Options = {}): Promise<void> {
 
 program
   .version(version)
+  .description("Install monorepo package dependencies with control! 📦")
   .option("-c, --config <config>", "config path")
   .option("--debug", "enables debug mode")
   .option("-d, --dest <string>", "dest path")
