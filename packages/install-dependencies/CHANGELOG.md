@@ -1,5 +1,11 @@
 # @monorepo-utilities/install-dependencies
 
+## 1.3.0
+
+### Minor Changes
+
+- Tweaks documents
+
 ## 1.2.1
 
 ### Patch Changes
