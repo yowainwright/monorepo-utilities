@@ -35,7 +35,12 @@ test("w/ no config reference", async () => {
   const result = stdoutToJSON(stdout);
 
   expect(result).toStrictEqual({
-    config: {},
+    config: {
+      exclude: ['cosmiconfig'],
+      include: {
+        "lodash": "latest"
+      }
+    },
     options: { isTestingCLI: "true" }
   });
 });
@@ -48,20 +53,30 @@ test('w/ options', async () => {
   const result = stdoutToJSON(stdout);
 
   expect(result).toStrictEqual({
-    config: {},
+    config: {
+      exclude: ['cosmiconfig'],
+      include: {
+        "lodash": "latest"
+      }
+    },
     options: { isTestingCLI: "true", debug: "true", file: "package.json" }
   });
 });
 
 test('w/ search path', async () => {
   const { stdout = "{}" } = await execPromise(
-    "ts-node ./src/program.ts --isTestingCLI --debug --searchPath './.idepsrc'"
+    "ts-node ./src/program.ts --isTestingCLI --debug --config './.idepsrc'"
   );
 
   const result = stdoutToJSON(stdout);
 
   expect(result).toStrictEqual({
-    config: {},
-    options: { isTestingCLI: "true", debug: "true", searchPath: "./.idepsrc" }
+    config: {
+      exclude: ['cosmiconfig'],
+      include: {
+        "lodash": "latest"
+      }
+    },
+    options: { isTestingCLI: "true", debug: "true", config: "./.idepsrc" }
   });
 });

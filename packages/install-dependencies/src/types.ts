@@ -22,5 +22,6 @@ export interface InstallDependenciesOptions {
   file?: string;
   isTesting?: boolean;
   hasLockfile?: boolean;
+  path?: string;
   runner?: string;
 }
