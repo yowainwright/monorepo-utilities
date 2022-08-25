@@ -3,7 +3,7 @@
 ![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 [![npm version](https://badge.fury.io/js/%40monorepo-utilities%2Finstall-dependencies.svg)](https://www.npmjs.com/package/@monorepo-utilities/install-dependencies)
 
-Install Dependencies is CLI which helps you install monorepo package dependencies with control!
+_Install Dependencies_ is CLI which helps you install monorepo package dependencies with control!
 
 ## Why tho?
 
