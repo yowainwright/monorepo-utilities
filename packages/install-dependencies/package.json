@@ -21,7 +21,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "clean": "rimraf dist",
-    "cmd:quick-test": "ts-node src/program.ts -f __fixtures__/test.all.package.json --dest './quick-test' --debug",
+    "cmd:quick-test": "rimraf quick-test && ts-node src/program.ts -f __fixtures__/test.all.package.json --dest './quick-test' --debug",
+    "cmd:quick-test:config": "rimraf quick-test-config && ts-node src/program.ts -f __fixtures__/test.package.json --dest './quick-test-config' --debug --searchPath __fixtures__/",
     "lint": "eslint src/**/*.ts --config ../../.eslintrc",
     "lint:fix": "eslint src/**/*.ts --config ../../.eslintrc --fix",
     "test": "vitest run",
