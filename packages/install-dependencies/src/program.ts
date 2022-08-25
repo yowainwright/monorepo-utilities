@@ -32,7 +32,6 @@ program
   .option("-t, --isTestingCLI", "enables CLI testing, no scripts are run")
   .option('--isTesting', "enables testing, no scripts are run")
   .option("-r, --runner <runner>", "npm, pnpm, or yarn")
-  .option('-s, --searchPath <searchPath>', 'search path for the config')
   .action(action)
   .parse(process.argv);
 

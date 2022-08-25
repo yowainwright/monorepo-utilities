@@ -42,11 +42,29 @@ Options:
 
 ### Optional Specificity
 
-If you want even more control, within a `package.json` you can add `installDependencies` or `ideps` object.
+If you want even more control, within a `package.json`, you can add `installDependencies` or `ideps` object.
 Now, you can optionally add packages to ignore using an `ignore` array or you can include more using `include` object!
 
+If you'd prefer this functionality without adding `installDependencies` or `ideps` to `package.json`, you can add an `ignore` array or an `include` object to a `.idepsrc` config at the root of your package.
+
 ```ts
+// within package.json
 "installDependencies": {
+  "include": {
+    "react": "17.0.1",
+    "@babel/core": "7.12.10",
+    "typescript": "4.1.2"
+  },
+  "ignore": [
+    "ramda"
+  ]
+}
+```
+
+Within a `.idepsrc`
+
+```ts
+{
   "include": {
     "react": "17.0.1",
     "@babel/core": "7.12.10",
