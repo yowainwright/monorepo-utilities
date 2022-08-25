@@ -75,3 +75,7 @@ const directoryList = listPackagesByDirectory({ <dir> })
 ## Cites
 
 There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils), [monorepo-utils](https://github.com/azu/monorepo-utils), [bolt](https://github.com/boltpkg/bolt), [redwoodjs](https://redwoodjs.com/).
+
+---
+
+Made by [@yowainwright](https://github.com/yowainwright) for fun with passion! MIT, 2022
