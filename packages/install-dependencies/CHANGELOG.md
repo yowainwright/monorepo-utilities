@@ -1,5 +1,11 @@
 # @monorepo-utilities/install-dependencies
 
+## 1.2.0
+
+### Minor Changes
+
+- fixes path bug + filter bug
+
 ## 1.1.0
 
 ### Minor Changes
