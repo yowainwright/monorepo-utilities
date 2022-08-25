@@ -84,4 +84,4 @@ Javascript utilities for better monorepo results.
 
 ---
 
-View other [monorepo utilities](../../).
+View other [monorepo utilities](../../). Made by [@yowainwright](https://github.com/yowainwright) for fun with passion! MIT, 2022
