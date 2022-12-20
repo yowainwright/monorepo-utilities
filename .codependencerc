@@ -1,0 +1,32 @@
+{
+  "codependencies": [
+    "@changesets/cli",
+    "@commitlint/cli",
+    "@commitlint/config-lerna-scopes",
+    "@commitlint/prompt",
+    "@monorepo-utilities/install-dependencies",
+    "@types/eslint",
+    "@types/node",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "commander",
+    "cosmiconfig",
+    "commitizen",
+    "eslint",
+    "eslint-config-prettier",
+    "fs-extra",
+    "husky",
+    "prettier",
+    "rimraf",
+    "shx",
+    "stdouttojson",
+    "ts-node",
+    "tsconfig-paths",
+    "tslib",
+    "tsup",
+    "tsutils",
+    "turbo",
+    "typescript",
+    "vitest"
+  ]
+}

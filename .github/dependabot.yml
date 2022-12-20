@@ -8,3 +8,4 @@ updates:
       - dependency-type: "all"
     ignore:
       - dependency-name: "husky"
+    open-pull-requests-limit: 0
