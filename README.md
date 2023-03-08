@@ -67,11 +67,6 @@ const directoryList = listPackagesByDirectory({ <dir> })
 // => returns an array of strings containing each
 ``` -->
 
-## Thanks
-
-- Thanks [Geoff Golliher](https://github.com/clyfar) for constant mentorship.
-- Thanks [Will Jacobson](https://github.com/willzjacobson) for listening to my concepts before implementing initial takes on these utilities.
-
 ## Cites
 
 There are many great things to cite for monorepos, here are a few: [Lerna](https://github.com/lerna/lerna), [Monorepo-utils](https://github.com/azu/monorepo-utils), [monorepo-utils](https://github.com/azu/monorepo-utils), [bolt](https://github.com/boltpkg/bolt), [redwoodjs](https://redwoodjs.com/).
